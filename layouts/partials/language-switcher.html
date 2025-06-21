@@ -1,11 +1,5 @@
-{{- if .Site.IsMultiLingual -}}
 <div class="language-switcher">
-  {{- range .Site.Languages -}}
-  {{- if not (eq .Lang $.Site.Language.Lang) -}}
-  <a href="{{ $.Permalink | relLangURL .Lang }}" lang="{{ .Lang }}">
-    {{ .LanguageName }}
-  </a>
-  {{- end -}}
+  {{- range .Translations -}}
+  <a href="{{ .Permalink }}" lang="{{ .Lang }}"> {{ upper .Lang }} </a>
   {{- end -}}
 </div>
-{{- end -}}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome on Dongjae Lee Blog</title>
+    <link>http://localhost:1314/tags/welcome/</link>
+    <description>Recent content in Welcome on Dongjae Lee Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© Dongjae Lee</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1314/tags/welcome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to My Multilingual Blog</title>
+      <link>http://localhost:1314/posts/welcome/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/posts/welcome/</guid>
+      <description>&lt;h1 id=&#34;welcome&#34;&gt;Welcome!&lt;/h1&gt;&#xA;&lt;p&gt;This is my first post on this multilingual blog. I&amp;rsquo;m excited to share content in both English and Korean.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Bilingual content (English/Korean)&lt;/li&gt;&#xA;&lt;li&gt;Easy language switching&lt;/li&gt;&#xA;&lt;li&gt;Localized navigation menus&lt;/li&gt;&#xA;&lt;li&gt;Translated UI elements&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Stay tuned for more interesting content!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

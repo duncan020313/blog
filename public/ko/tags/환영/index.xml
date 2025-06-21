@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>환영 on Dongjae Lee Blog</title>
+    <link>http://localhost:1314/ko/tags/%ED%99%98%EC%98%81/</link>
+    <description>Recent content in 환영 on Dongjae Lee Blog</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <copyright>© Dongjae Lee</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1314/ko/tags/%ED%99%98%EC%98%81/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>다국어 블로그에 오신 것을 환영합니다</title>
+      <link>http://localhost:1314/ko/posts/welcome/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1314/ko/posts/welcome/</guid>
+      <description>&lt;h1 id=&#34;환영합니다&#34;&gt;환영합니다!&lt;/h1&gt;&#xA;&lt;p&gt;이것은 다국어 블로그의 첫 번째 포스트입니다. 영어와 한국어로 콘텐츠를 공유하게 되어 기쁩니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능들&#34;&gt;기능들&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;이중 언어 콘텐츠 (영어/한국어)&lt;/li&gt;&#xA;&lt;li&gt;쉬운 언어 전환&lt;/li&gt;&#xA;&lt;li&gt;지역화된 네비게이션 메뉴&lt;/li&gt;&#xA;&lt;li&gt;번역된 UI 요소들&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;더 흥미로운 콘텐츠를 기대해 주세요!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

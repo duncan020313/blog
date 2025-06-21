@@ -1,0 +1,48 @@
+# Korean translations
+[readMore]
+other = "더 읽기"
+
+[posts]
+other = "포스트"
+
+[minutes]
+other = "분"
+
+[readingTime]
+other = "{{ .Count }}분 읽기"
+
+[allPosts]
+other = "모든 포스트"
+
+[tags]
+other = "태그"
+
+[categories]
+other = "카테고리"
+
+[archives]
+other = "아카이브"
+
+[publishedOn]
+other = "게시일"
+
+[lastModified]
+other = "최종 수정일"
+
+[next]
+other = "다음"
+
+[previous]
+other = "이전"
+
+[home]
+other = "홈"
+
+[about]
+other = "소개"
+
+[search]
+other = "검색"
+
+[language]
+other = "언어" 

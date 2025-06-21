@@ -1,0 +1,48 @@
+# English translations
+[readMore]
+other = "Read more"
+
+[posts]
+other = "Posts"
+
+[minutes]
+other = "minutes"
+
+[readingTime]
+other = "{{ .Count }} min read"
+
+[allPosts]
+other = "All Posts"
+
+[tags]
+other = "Tags"
+
+[categories]
+other = "Categories"
+
+[archives]
+other = "Archives"
+
+[publishedOn]
+other = "Published on"
+
+[lastModified]
+other = "Last modified on"
+
+[next]
+other = "Next"
+
+[previous]
+other = "Previous"
+
+[home]
+other = "Home"
+
+[about]
+other = "About"
+
+[search]
+other = "Search"
+
+[language]
+other = "Language" 

@@ -1,0 +1,32 @@
+/* Language switcher styling */
+.language-switcher {
+    display: inline-block;
+}
+
+.language-switcher a {
+    text-decoration: none;
+    padding: 2px 8px;
+    margin: 0 2px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+}
+
+.language-switcher a:hover {
+    background-color: var(--accent);
+    color: var(--background);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .language-switcher {
+        display: block;
+        margin-top: 8px;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+} 

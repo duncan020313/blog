@@ -34,12 +34,12 @@ copyright = "© Dongjae Lee"
 [[params.social]]
 name = "GitHub"
 icon = "github"
-url = "https://github.com/athul/archie"
+url = "https://github.com/duncan020313"
 
 [[params.social]]
 name = "Twitter"
 icon = "twitter"
-url = "https://twitter.com/athulcajay/"
+url = "https://twitter.com/djlee0313"
 
 # English menu
 [[languages.en.menu.main]]

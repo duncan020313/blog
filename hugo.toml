@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://blog.djlee.dev/'
 defaultContentLanguage = 'en'
 title = 'Dongjae Lee Blog'
 theme = 'archie'
@@ -25,7 +25,7 @@ copyright = "© Dongjae Lee"
 	pagerSize = 3
 
 [params]
-	mode="toggle" # color-mode → light,dark,toggle or auto
+	mode="light" # color-mode → light,dark,toggle or auto
 	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
 	mathjax = true # enable MathJax support
 	katex = true # enable KaTeX support
@@ -82,3 +82,15 @@ weight = 3
 name = "태그"
 url = "/tags"
 weight = 4
+
+[params.giscus]
+  repo = "duncan020313/blog"
+  repo_id = "R_kgDOO_W5AQ"
+  category = "Announcements"
+  category_id = "DIC_kwDOO_W5Ac4CrzaI"
+  mapping = "pathname"
+  strict = "0"
+  reactions_enabled = "1"
+  emit_metadata = "0"
+  input_position = "bottom"
+  crossorigin="anonymous"

@@ -1,0 +1,20 @@
+{{ $g := .Site.Params.giscus }}
+{{- /* Render Giscus only if a repository has been configured */ -}}
+{{ if $g.repo }}
+<div id="giscus_thread"></div>
+<script src="https://giscus.app/client.js"
+        data-repo="{{ $g.repo }}"
+        data-repo-id="{{ $g.repo_id }}"
+        data-category="{{ $g.category }}"
+        data-category-id="{{ $g.category_id }}"
+        data-mapping="{{ or $g.mapping "pathname" }}"
+        data-strict="{{ or $g.strict "0" }}"
+        data-reactions-enabled="{{ or $g.reactions_enabled "1" }}"
+        data-emit-metadata="{{ or $g.emit_metadata "0" }}"
+        data-input-position="{{ or $g.input_position "bottom" }}"
+        data-theme="{{ .Site.Params.mode }}"
+        data-lang="{{ .Language.Lang }}"
+        crossorigin="anonymous"
+        async>
+</script>
+{{ end }} 

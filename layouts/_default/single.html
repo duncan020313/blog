@@ -50,6 +50,8 @@
     {{- if eq ($.Scratch.Get "isDisqus") true -}}
     {{- partial "disqus.html" . -}}
     {{- end -}}
+
+    {{ partial "giscus.html" . }}
   </article>
 </main>
 {{ end }}

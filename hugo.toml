@@ -7,7 +7,7 @@ copyright = "© Dongjae Lee"
 # Language configuration
 [languages]
   [languages.en]
-    title = 'Dongjae Lee Blog'
+    title = "Dongjae's Blog"
     languageName = 'English'
     languageCode = 'en-us'
     weight = 1
@@ -15,7 +15,7 @@ copyright = "© Dongjae Lee"
 
       
   [languages.ko]
-    title = 'Dongjae Lee Blog'
+    title = "Dongjae's Blog"
     languageName = '한국어'
     languageCode = 'ko-kr'
     weight = 2
@@ -65,22 +65,22 @@ weight = 4
 # Korean menu
 [[languages.ko.menu.main]]
 name = "홈"
-url = "/"
+url = "/ko"
 weight = 1
 
 [[languages.ko.menu.main]]
 name = "포스트"
-url = "/posts"
+url = "/ko/posts"
 weight = 2
 
 [[languages.ko.menu.main]]
 name = "소개"
-url = "/about"
+url = "/ko/about"
 weight = 3
 
 [[languages.ko.menu.main]]
 name = "태그"
-url = "/tags"
+url = "/ko/tags"
 weight = 4
 
 [params.giscus]

@@ -1,17 +1,13 @@
 ---
 title: "About"
 date: 2024-01-01
-draft: false
 ---
 
 # About Me
 
-Welcome to my blog! I'm Dongjae Lee, and this is where I share my thoughts, experiences, and knowledge.
+Welcome to my blog! I'm Dongjae Lee, a master's student at [Prosys Lab](https://prosys.kaist.ac.kr/), KAIST.
 
-## What You'll Find Here
+# Interests
 
-- Technical articles and tutorials
-- Personal reflections and experiences
-- Projects and experiments
-
-Feel free to explore and don't hesitate to reach out if you have any questions or suggestions! 
+My ultimate goal is to build a easy-to-use programming system for everyone.
+For this, I combine programming language theory and machine learning in my research.

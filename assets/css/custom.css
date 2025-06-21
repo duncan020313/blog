@@ -26,11 +26,6 @@ head[lang="ko"] ~ body p {
     transition: all 0.2s ease;
 }
 
-.language-switcher a:hover {
-    background-color: var(--accent);
-    color: var(--background);
-}
-
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .language-switcher {

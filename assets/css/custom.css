@@ -1,3 +1,16 @@
+/* Korean font */
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply Korean font only for Korean content */
+head[lang="ko"] ~ body p {
+    font-family: 'GowunDodum-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 /* Language switcher styling */
 .language-switcher {
     display: inline-block;

@@ -37,4 +37,8 @@ head[lang="ko"] ~ body p {
         flex-direction: column;
         align-items: flex-start;
     }
-} 
+}
+
+strong {
+    border-bottom: 3px solid var(--maincolor)
+}

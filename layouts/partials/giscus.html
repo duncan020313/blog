@@ -1,5 +1,4 @@
 {{ $g := .Site.Params.giscus }}
-{{- /* Render Giscus only if a repository has been configured */ -}}
 {{ if $g.repo }}
 <div id="giscus_thread"></div>
 <script src="https://giscus.app/client.js"

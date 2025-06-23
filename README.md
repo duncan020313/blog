@@ -1,0 +1,1 @@
+[Link](https://duncan020313.github.io/blog)

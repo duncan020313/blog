@@ -41,6 +41,11 @@ name = "Twitter"
 icon = "twitter"
 url = "https://twitter.com/djlee0313"
 
+[[params.social]]
+name = "LinkedIn"
+icon = "linkedin"
+url = "https://www.linkedin.com/in/%EB%8F%99%EC%9E%AC-%EC%9D%B4-b837a824b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BMcbpTWGORz6Qi0ptP6FRBg%3D%3D"
+
 # English menu
 [[languages.en.menu.main]]
 name = "Home"

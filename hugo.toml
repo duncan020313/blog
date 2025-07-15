@@ -27,24 +27,24 @@ googleAnalytics = "G-6837PZBEDR"
 
 [params]
 	mode="light" # color-mode → light,dark,toggle or auto
-	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
-	mathjax = true # enable MathJax support
+	useCDN=true # use CDNs for fonts and icons for reliable loading
+	mathjax = false # enable MathJax support
 	katex = true # enable KaTeX support
 	customCSS = ["css/custom.css"] # Custom CSS for language switcher
 
 [[params.social]]
 name = "GitHub"
-icon = "github"
+icon = "simple:github"
 url = "https://github.com/duncan020313"
 
 [[params.social]]
-name = "Twitter"
-icon = "twitter"
-url = "https://twitter.com/djlee0313"
+name = "X"
+icon = "simple:x"
+url = "https://x.com/djlee0313"
 
 [[params.social]]
 name = "LinkedIn"
-icon = "linkedin"
+icon = "simple:linkedin"
 url = "https://www.linkedin.com/in/%EB%8F%99%EC%9E%AC-%EC%9D%B4-b837a824b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BMcbpTWGORz6Qi0ptP6FRBg%3D%3D"
 
 # English menu

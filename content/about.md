@@ -3,7 +3,6 @@ title: "About"
 date: 2024-01-01
 ---
 
-# About Me
 Welcome to my blog! I'm Dongjae Lee, a master's student at [Prosys Lab](https://prosys.kaist.ac.kr/), KAIST.
 
 # Interests

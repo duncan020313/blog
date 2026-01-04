@@ -4,8 +4,6 @@ date: 2024-01-01
 draft: false
 ---
 
-# 소개
-
 안녕하세요! 저는 KAIST [Prosys Lab](https://prosys.kaist.ac.kr/)의 석사과정 학생 이동재입니다.
 
 # 관심분야

@@ -13,9 +13,6 @@ draft: false
 저의 궁극적인 목표는 모든 사람이 쉽게 사용할 수 있는 프로그래밍 시스템을 구축하는 것입니다.
 이를 위해 프로그래밍 언어 이론과 기계학습을 결합하는 연구를 진행하고 있습니다.
 
-# 수상
-- 2025년 인공지능 챔피언 대회 우승 (과학기술부 장관상, 팀: autophone)
-
 # 연락처
 - 이메일: [dongjae.lee@prosys.kaist.ac.kr](mailto:dongjae.lee@prosys.kaist.ac.kr)
 - 깃허브: [duncan020313](https://github.com/duncan020313)
@@ -27,3 +24,6 @@ draft: false
 
 - [Safeguarding Mobile GUI Agent via Logic-based Action Verification](https://arxiv.org/abs/2503.18492) (MobiCom'25)
   - Jungjae Lee*, **Dongjae Lee***, Chihun Choi, Youngmin Im, Jaeyoung Wi, Kihong Heo, Sangeun Oh, Sunjae Lee, Insik Shin ('*' is equal contribution)
+
+# 수상
+- 2025년 인공지능 챔피언 대회 우승 (과학기술부 장관상, 팀: autophone)

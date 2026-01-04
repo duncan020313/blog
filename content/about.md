@@ -10,9 +10,6 @@ Welcome to my blog! I'm Dongjae Lee, a master's student at [Prosys Lab](https://
 My ultimate goal is to build a easy-to-use programming system for everyone.
 For this, I combine programming language theory and machine learning in my research.
 
-# Awards
-- Winner of the 2025 AI Champion Competition (Minister of Science and Technology Award, Team: autophone)
-
 # Contact
 - Email: [dongjae.lee@prosys.kaist.ac.kr](mailto:dongjae.lee@prosys.kaist.ac.kr)
 - GitHub: [duncan020313](https://github.com/duncan020313)
@@ -25,3 +22,6 @@ For this, I combine programming language theory and machine learning in my resea
 
 - [Safeguarding Mobile GUI Agent via Logic-based Action Verification](https://arxiv.org/abs/2503.18492) (MobiCom'25)
   - Jungjae Lee*, **Dongjae Lee***, Chihun Choi, Youngmin Im, Jaeyoung Wi, Kihong Heo, Sangeun Oh, Sunjae Lee, Insik Shin ('*' is equal contribution)
+
+# Awards
+- Winner of the 2025 AI Champion Competition (Minister of Science and Technology Award, Team: autophone)

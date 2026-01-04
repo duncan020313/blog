@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{- /*
+  Render the "About" page as the homepage.
+  This keeps the About content in a single source of truth (`content/about*.md`)
+  while making "/" (and "/ko/") behave like the About landing page.
+*/ -}}
+
+{{- $about := .Site.GetPage "page" "about" -}}
+{{- if not $about -}}
+  {{- $about = .Site.GetPage "/about" -}}
+{{- end -}}
+{{- if not $about -}}
+  {{- $about = .Site.GetPage "about" -}}
+{{- end -}}
+
+<main>
+  {{- if $about -}}
+  <article>
+    <div class="post-container">
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">{{ $about.Title }}</h1>
+        </div>
+        <section class="body">
+          {{ $about.Content }}
+        </section>
+      </div>
+    </div>
+  </article>
+  {{- else -}}
+  <article>
+    <h1 class="title">About</h1>
+    <section class="body">
+      <p>Could not find the About page content.</p>
+    </section>
+  </article>
+  {{- end -}}
+</main>
+{{ end }}
+
+

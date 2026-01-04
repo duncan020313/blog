@@ -14,7 +14,7 @@ googleAnalytics = "G-6837PZBEDR"
     weight = 1
     copyright = "© Dongjae Lee"
 
-      
+
   [languages.ko]
     title = "Dongjae's Blog"
     languageName = '한국어'
@@ -63,11 +63,6 @@ name = "About"
 url = "/about"
 weight = 3
 
-[[languages.en.menu.main]]
-name = "Tags"
-url = "/tags"
-weight = 4
-
 # Korean menu
 [[languages.ko.menu.main]]
 name = "홈"
@@ -83,11 +78,6 @@ weight = 2
 name = "소개"
 url = "/ko/about"
 weight = 3
-
-[[languages.ko.menu.main]]
-name = "태그"
-url = "/ko/tags"
-weight = 4
 
 [params.giscus]
   repo = "duncan020313/blog"

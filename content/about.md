@@ -10,6 +10,9 @@ Welcome to my blog! I'm Dongjae Lee, a master's student at [Prosys Lab](https://
 My ultimate goal is to build a easy-to-use programming system for everyone.
 For this, I combine programming language theory and machine learning in my research.
 
+# Awards
+- Winner of the 2025 AI Champion Competition (Minister of Science and Technology Award, Team: autophone)
+
 # Contact
 - Email: [dongjae.lee@prosys.kaist.ac.kr](mailto:dongjae.lee@prosys.kaist.ac.kr)
 - GitHub: [duncan020313](https://github.com/duncan020313)

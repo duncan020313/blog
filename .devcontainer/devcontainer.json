@@ -1,0 +1,28 @@
+{
+  "name": "duncan-blog",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "budparr.language-hugo-vscode",
+        "DavidAnson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "EditorConfig.EditorConfig"
+      ]
+    }
+  },
+  "forwardPorts": [
+    1313,
+    1455
+  ],
+  "portsAttributes": {
+    "1313": {
+      "label": "Hugo Dev Server",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "remoteUser": "node"
+}

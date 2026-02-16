@@ -1,16 +1,18 @@
 <footer>
-  <div style="display: flex">
-    {{- range $index, $key := .Site.Params.Social -}} {{- if hasPrefix $key.icon
-    "simple:" -}}
-    <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}"
-      ><i class="si si-{{ substr $key.icon 7 }}"></i
-    ></a>
-    {{- else -}}
-    <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}"
-      >{{ template "feathericon" (dict "Icon" $key.icon "UseCDN"
-      .Site.Params.useCDN) }}</a
-    >
-    {{- end -}}
+  {{- $featherIconURL := "https://unpkg.com/feather-icons@4.29.2/dist/feather-sprite.svg" -}}
+  {{- if not (.Site.Params.useCDN | default false) -}}
+  {{- $sprite := resources.Get "svg/feather-sprite.svg" -}}
+  {{- if $sprite }}
+  {{- $featherIconURL = $sprite.RelPermalink -}}
+  {{- end -}}
+  {{- end -}}
+
+  <div style="display: flex; flex-wrap: wrap; align-items: center;">
+    {{- range $key := .Site.Params.Social -}}
+    {{- $iconName := strings.TrimPrefix "simple:" $key.icon -}}
+    <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}">
+      <svg class="feather" aria-hidden="true"><use href="{{ $featherIconURL }}#{{ $iconName }}" /></svg>
+    </a>
     <a class="border"></a>
     {{- end -}}
   </div>

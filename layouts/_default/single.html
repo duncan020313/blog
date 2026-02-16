@@ -1,6 +1,5 @@
 {{ define "main" }}
-<main>
-  <article>
+<article class="content-page">
     <div class="post-container">
       <!-- Main Content -->
       <div class="post-content">
@@ -17,19 +16,20 @@
         <section class="body">
           {{ .Content }}
         </section>
-        <div class="post-tags">
-          {{ if ne .Type "page" }}
-          {{ if gt .Params.tags 0 }}
-          <nav class="nav tags">
-            <ul class="tags">
-              {{ range .Params.tags }}
-              <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
-              {{ end }}
-            </ul>
-          </nav>
-          {{ end }}
-          {{ end }}
-        </div>
+      <div class="post-tags">
+        {{ if ne .Type "page" }}
+        {{- $terms := .GetTerms "tags" -}}
+        {{ if gt (len $terms) 0 }}
+        <nav class="nav tags">
+          <ul class="tag-list">
+            {{ range $terms }}
+            <li><a href="{{ .Page.RelPermalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+          </ul>
+        </nav>
+        {{ end }}
+        {{ end }}
+      </div>
       </div>
 
       <!-- TOC -->
@@ -53,5 +53,4 @@
 
     {{ partial "giscus.html" . }}
   </article>
-</main>
 {{ end }}

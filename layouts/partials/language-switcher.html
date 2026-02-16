@@ -1,5 +1,5 @@
 <div class="language-switcher">
   {{- range .Translations -}}
-  <a href="{{ .Permalink }}" lang="{{ .Language.Lang }}"> {{ upper .Lang }} </a>
+  <a href="{{ .RelPermalink }}" lang="{{ .Language.Lang }}">{{ upper .Lang }}</a>
   {{- end -}}
 </div>

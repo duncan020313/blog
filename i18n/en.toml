@@ -46,3 +46,6 @@ other = "Search"
 
 [language]
 other = "Language" 
+
+[noPosts]
+other = "No posts yet."

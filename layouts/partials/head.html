@@ -1,31 +1,32 @@
-{{- define "feathericon" -}}
-{{- $featherURL := "https://unpkg.com/feather-icons@4.29.2/dist/feather-sprite.svg" -}}
-{{ if not (.UseCDN | default false) -}}
-{{- $featherURL = (resources.Get "svg/feather-sprite.svg" | fingerprint).RelPermalink -}}
+{{- $featherIconURL := "https://unpkg.com/feather-icons@4.29.2/dist/feather-sprite.svg" -}}
+{{- if not (.Site.Params.useCDN | default false) -}}
+{{- $sprite := resources.Get "svg/feather-sprite.svg" -}}
+{{- if $sprite }}
+{{- $featherIconURL = $sprite.RelPermalink -}}
 {{- end -}}
-<svg class="feather">
-	<use href="{{ printf " %s#%s" $featherURL .Icon }}" />
-</svg>
 {{- end -}}
 
-<header>
-	<div class="main">
-		<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+<header class="site-header">
+	<div class="site-header-inner">
+		<a class="brand" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+		<nav class="top-nav">
+			{{- $menuLen := len .Site.Menus.main -}}
+			{{ range $idx, $menu := .Site.Menus.main }}
+			<a href="{{ $menu.URL }}">{{ $menu.Name }}</a>
+			{{ if lt (add $idx 1) $menuLen }}
+			<span class="divider">|</span>
+			{{ end }}
+			{{ end }}
+			{{- if eq .Site.Params.mode "toggle" -}}
+			<span id="dark-mode-toggle" onclick="toggleTheme()" role="button" tabindex="0" aria-label="toggle color theme">
+				<svg class="feather" aria-hidden="true"><use href="{{ $featherIconURL }}#sun" /></svg>
+			</span>
+			<span class="divider">|</span>
+			<script src="{{ absURL "js/themetoggle.js" }}"></script>
+			{{ end -}}
+			{{ if .Site.IsMultiLingual }}
+			{{ partial "language-switcher.html" . }}
+			{{ end }}
+		</nav>
 	</div>
-	<nav>
-		{{ range .Site.Menus.main }}
-		<a href="{{ .URL }}">{{ .Name }}</a>
-		{{ end }}
-		{{ if eq .Site.Params.mode "toggle" -}}
-		| <span id="dark-mode-toggle" onclick="toggleTheme()">{{template "feathericon" (dict "UseCDN"
-			.Site.Params.useCDN "Icon" "sun") }}</span>
-		<script src="{{ absURL " js/themetoggle.js" }}"></script>
-		{{ end }}
-		{{ if hugo.IsMultilingual }}
-		| {{ partial "language-switcher.html" . }}
-		{{ end }}
-	</nav>
-	{{ if not hugo.IsServer }}
-	{{ template "_internal/google_analytics.html" . }}
-	{{ end }}
 </header>

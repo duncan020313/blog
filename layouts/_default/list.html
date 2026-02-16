@@ -1,0 +1,10 @@
+{{ define "main" }}
+{{- $title := .Title | default (i18n "posts") -}}
+
+<article class="content-section">
+  <header class="section-header">
+    <h1>{{ $title }}</h1>
+  </header>
+  {{ partial "post-list.html" . }}
+</article>
+{{ end }}

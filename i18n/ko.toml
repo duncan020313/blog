@@ -46,3 +46,6 @@ other = "검색"
 
 [language]
 other = "언어"
+
+[noPosts]
+other = "아직 글이 없습니다."

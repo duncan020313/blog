@@ -1,7 +1,6 @@
 baseURL = 'https://duncan020313.github.io/blog/'
 defaultContentLanguage = 'en'
 title = 'Dongjae Lee Blog'
-theme = 'archie'
 copyright = "© Dongjae Lee"
 googleAnalytics = "G-6837PZBEDR"
 

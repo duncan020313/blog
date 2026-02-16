@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="only light dark">
+  <title>{{ block "title" . }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+
+  {{- $themeCSS := resources.Get "css/theme.css" -}}
+  {{- if $themeCSS }}
+    {{- if hugo.IsProduction }}
+      {{- $themeCSS = $themeCSS | minify | fingerprint -}}
+    {{- else }}
+      {{- $themeCSS = $themeCSS | fingerprint -}}
+    {{- end }}
+    <link rel="stylesheet" href="{{ $themeCSS.RelPermalink }}">
+  {{- end }}
+
+  {{- range $customPath := .Site.Params.customCSS }}
+    {{- $custom := resources.Get $customPath -}}
+    {{- if $custom }}
+      {{- if hugo.IsProduction }}
+        {{- $custom = $custom | minify | fingerprint -}}
+      {{- else }}
+        {{- $custom = $custom | fingerprint -}}
+      {{- end }}
+      <link rel="stylesheet" href="{{ $custom.RelPermalink }}">
+    {{- else }}
+      <link rel="stylesheet" href="{{ $customPath | absURL }}">
+    {{- end }}
+  {{- end }}
+
+</head>
+<body>
+  <div class="site-shell">
+    {{ partial "head.html" . }}
+
+    <main id="content">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+  </div>
+
+  {{ if not .Site.IsServer }}
+  {{ template "_internal/google_analytics.html" . }}
+  {{ end }}
+</body>
+</html>

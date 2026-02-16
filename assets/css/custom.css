@@ -6,9 +6,8 @@
     font-style: normal;
 }
 
-/* Apply Korean font only for Korean content */
-head[lang="ko"] ~ body p {
-    font-family: 'GowunDodum-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+html[lang="ko"] {
+    --font-sans: 'GowunDodum-Regular', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Language switcher styling */
@@ -20,7 +19,7 @@ head[lang="ko"] ~ body p {
     text-decoration: none;
     padding: 2px 8px;
     margin: 0 2px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
     border-radius: 3px;
     font-size: 0.9em;
     transition: all 0.2s ease;
@@ -32,7 +31,7 @@ head[lang="ko"] ~ body p {
         display: block;
         margin-top: 8px;
     }
-    
+
     nav {
         flex-direction: column;
         align-items: flex-start;
@@ -40,5 +39,5 @@ head[lang="ko"] ~ body p {
 }
 
 strong {
-    border-bottom: 3px solid var(--maincolor)
+    border-bottom: 2px solid var(--accent);
 }

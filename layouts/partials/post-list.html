@@ -1,0 +1,44 @@
+{{- $pages := .Paginator.Pages -}}
+
+{{- if not $pages }}
+  {{- $pages = .Pages -}}
+{{- end -}}
+
+{{- if eq (len $pages) 0 -}}
+  <p>{{ i18n "noPosts" | default "No posts yet." }}</p>
+{{- else -}}
+  <section class="post-list">
+    {{- range $pages }}
+    <article class="post-card">
+      <h2 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <div class="meta">{{ i18n "publishedOn" }} {{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span>{{ end }}</div>
+      <div class="summary">{{ .Summary }}</div>
+      <a class="read-more" href="{{ .RelPermalink }}">{{ i18n "readMore" }}</a>
+
+      {{- $tags := .GetTerms "tags" -}}
+      {{- if gt (len $tags) 0 }}
+      <ul class="tag-list">
+        {{- range $tags }}
+        <li><a href="{{ .Page.RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+      {{- end -}}
+    </article>
+    {{- end -}}
+  </section>
+
+  {{- if .Paginator }}
+    {{- if gt .Paginator.TotalPages 1 }}
+    <nav class="pagination" aria-label="pagination">
+      {{- if .Paginator.HasPrev }}
+      <a href="{{ .Paginator.Prev.URL }}">{{ i18n "previous" }}</a>
+      {{- else }}
+      <span></span>
+      {{- end -}}
+      {{- if .Paginator.HasNext }}
+      <a href="{{ .Paginator.Next.URL }}">{{ i18n "next" }}</a>
+      {{- end -}}
+    </nav>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

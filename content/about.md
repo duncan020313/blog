@@ -5,7 +5,7 @@ date: 2024-01-01
 
 # Introduction
 
-Welcome to my blog. I am Dongjae Lee, an M.S. student in the School of Computing at KAIST and a member of [Prosys Lab](https://prosys.kaist.ac.kr/).
+Welcome to my blog. I am Dongjae Lee, an M.S. student in the School of Computing at KAIST and a member of [Prosys Lab](https://prosys.kaist.ac.kr/), advised by [Kihong Heo](https://kihongheo.kaist.ac.kr/).
 My goal is to build easy-to-use and trustworthy programming systems.
 To this end, I combine programming language theory and machine learning in my research.
 

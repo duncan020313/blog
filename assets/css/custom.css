@@ -1,43 +1,7 @@
-/* Korean font */
-@font-face {
-    font-family: 'GowunDodum-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 html[lang="ko"] {
-    --font-sans: 'GowunDodum-Regular', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-/* Language switcher styling */
-.language-switcher {
-    display: inline-block;
-}
-
-.language-switcher a {
-    text-decoration: none;
-    padding: 2px 8px;
-    margin: 0 2px;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    font-size: 0.9em;
-    transition: all 0.2s ease;
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .language-switcher {
-        display: block;
-        margin-top: 8px;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    --font-sans: 'Noto Sans KR', 'IBM Plex Sans', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 strong {
-    border-bottom: 2px solid var(--accent);
+    background: linear-gradient(transparent 60%, var(--accent-soft) 0);
 }

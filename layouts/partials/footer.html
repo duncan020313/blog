@@ -7,7 +7,7 @@
   {{- end -}}
   {{- end -}}
 
-  <div style="display: flex; flex-wrap: wrap; align-items: center;">
+  <div class="footer-links">
     {{- range $key := .Site.Params.Social -}}
     {{- $iconName := strings.TrimPrefix "simple:" $key.icon -}}
     <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}">

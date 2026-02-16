@@ -1,7 +1,7 @@
 html[lang="ko"] {
-    --font-sans: 'Noto Sans KR', 'IBM Plex Sans', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Noto Sans KR', 'Pretendard', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 strong {
-    background: linear-gradient(transparent 60%, var(--accent-soft) 0);
+    background: linear-gradient(transparent 58%, color-mix(in srgb, var(--accent-soft) 82%, transparent) 0);
 }

@@ -1,19 +1,10 @@
 <footer>
-  {{- $featherIconURL := "https://unpkg.com/feather-icons@4.29.2/dist/feather-sprite.svg" -}}
-  {{- if not (.Site.Params.useCDN | default false) -}}
-  {{- $sprite := resources.Get "svg/feather-sprite.svg" -}}
-  {{- if $sprite }}
-  {{- $featherIconURL = $sprite.RelPermalink -}}
-  {{- end -}}
-  {{- end -}}
-
   <div class="footer-links">
     {{- range $key := .Site.Params.Social -}}
-    {{- $iconName := strings.TrimPrefix "simple:" $key.icon -}}
     <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}">
-      <svg class="feather" aria-hidden="true"><use href="{{ $featherIconURL }}#{{ $iconName }}" /></svg>
+      {{ $key.name }}
     </a>
-    <a class="border"></a>
+    <span class="border" aria-hidden="true"></span>
     {{- end -}}
   </div>
   <div class="footer-info">

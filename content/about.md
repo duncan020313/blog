@@ -2,9 +2,6 @@
 title: "About"
 date: 2024-01-01
 ---
-
-# Introduction
-
 Welcome to my blog. I am Dongjae Lee, an M.S. student in the School of Computing at KAIST and a member of [Prosys Lab](https://prosys.kaist.ac.kr/), advised by [Kihong Heo](https://kihongheo.kaist.ac.kr/).
 My goal is to build easy-to-use and trustworthy programming systems.
 To this end, I combine programming language theory and machine learning in my research.
@@ -34,15 +31,15 @@ My current research interests include:
 - Dean's List (College of Engineering, Fall Semester)
 
 ## 2024
-- BS Summa Cum Laude
-- Finalist, Global AI Idea Lab Contest (CODEGATE 2024, Aug 29-30, 2024, COEX Seoul, Space AGE/AI and Cybersecurity)
+- BS Summa Cum Laude (GPA: 4.03/4.3)
+- Finalist, Global AI Idea Lab Contest (CODEGATE 2024)
 
 ## 2025
 - Winner, AI Champion Competition (Minister of Science and ICT Award, Team: autophone)
 - Outstanding Teaching Assistant, Fall Semester (CS424 Program Reasoning)
 
 ## 2026
-- Recipient of the Master's Thesis Excellence Award
+- Master's Thesis Excellence Award
 
 # Contact
 - Email: [dongjae.lee@prosys.kaist.ac.kr](mailto:dongjae.lee@prosys.kaist.ac.kr)

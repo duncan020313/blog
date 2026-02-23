@@ -5,3 +5,17 @@ html[lang="ko"] {
 strong {
     background: linear-gradient(transparent 58%, color-mix(in srgb, var(--accent-soft) 82%, transparent) 0);
 }
+
+.post-content,
+.post-list {
+    padding-left: 2.8rem;
+    padding-right: 2.8rem;
+}
+
+.post-content li + li {
+    margin-top: 0.55rem;
+}
+
+.top-nav a {
+    font-size: 0.92rem;
+}

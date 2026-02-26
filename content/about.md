@@ -29,8 +29,14 @@ Specifically, my research interests are as follows:
 ## 2021
 - Dean's List (College of Engineering, Fall Semester)
 
+## 2022
+- National Excellence Scholarship
+
+## 2023
+- National Excellence Scholarship
+
 ## 2024
-- BS Summa Cum Laude (GPA: 4.03/4.3)
+- B.S. Summa Cum Laude (GPA: 4.03/4.3)
 - Finalist, Global AI Idea Lab Contest (CODEGATE 2024)
 
 ## 2025

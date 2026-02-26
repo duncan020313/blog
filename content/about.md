@@ -18,7 +18,7 @@ Specifically, my research interests are as follows:
 
 ## 2025
 
-- [Safeguarding Mobile GUI Agent via Logic-based Action Verification](https://arxiv.org/abs/2503.18492) (MobiCom 2025)
+- [Safeguarding Mobile GUI Agent via Logic-based Action Verification](https://dl.acm.org/doi/10.1145/3680207.3765248) (MobiCom 2025)
   - Jungjae Lee*, **Dongjae Lee***, Chihun Choi, Youngmin Im, Jaeyoung Wi, Kihong Heo, Sangeun Oh, Sunjae Lee, Insik Shin (* equal contribution)
 
 # Honors & Awards

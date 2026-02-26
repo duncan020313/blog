@@ -75,6 +75,29 @@
       {{ end }}
     </div>
 
+    {{ if ne .Type "page" }}
+    <nav class="post-nav" aria-label="{{ i18n "postNav" }}">
+      {{- with .PrevInSection }}
+      <a class="post-nav-item post-nav-prev" href="{{ .RelPermalink }}">
+        <span class="post-nav-label">
+          <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <span>{{ i18n "previous" }}</span>
+        </span>
+        <span class="post-nav-title">{{ .Title }}</span>
+      </a>
+      {{- end }}
+      {{- with .NextInSection }}
+      <a class="post-nav-item post-nav-next" href="{{ .RelPermalink }}">
+        <span class="post-nav-label">
+          <span>{{ i18n "next" }}</span>
+          <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+        <span class="post-nav-title">{{ .Title }}</span>
+      </a>
+      {{- end }}
+    </nav>
+    {{ end }}
+
     {{- $.Scratch.Set "isDisqus" true -}}
     {{ if not .Site.Config.Services.Disqus.Shortname }}
     {{- $.Scratch.Set "isDisqus" false -}}

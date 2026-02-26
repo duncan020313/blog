@@ -47,5 +47,8 @@ other = "검색"
 [language]
 other = "언어"
 
+[postNav]
+other = "글 탐색"
+
 [noPosts]
 other = "아직 글이 없습니다."

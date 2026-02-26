@@ -47,5 +47,8 @@ other = "Search"
 [language]
 other = "Language" 
 
+[postNav]
+other = "Post navigation"
+
 [noPosts]
 other = "No posts yet."

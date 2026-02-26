@@ -603,6 +603,10 @@ footer {
   min-height: 1rem;
 }
 
+.footer-links .border:last-child {
+  display: none;
+}
+
 .language-switcher {
   display: inline-flex;
   gap: 0.32rem;

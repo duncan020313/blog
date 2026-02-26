@@ -57,11 +57,6 @@ name = "Posts"
 url = "/posts"
 weight = 2
 
-[[languages.en.menu.main]]
-name = "About"
-url = "/about"
-weight = 3
-
 # Korean menu
 [[languages.ko.menu.main]]
 name = "홈"
@@ -72,11 +67,6 @@ weight = 1
 name = "포스트"
 url = "/ko/posts"
 weight = 2
-
-[[languages.ko.menu.main]]
-name = "소개"
-url = "/ko/about"
-weight = 3
 
 [params.giscus]
   repo = "duncan020313/blog"

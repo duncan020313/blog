@@ -18,11 +18,35 @@
 			{{ end }}
 			{{ end }}
 			{{- if eq .Site.Params.mode "toggle" -}}
-			<span id="dark-mode-toggle" onclick="toggleTheme()" role="button" tabindex="0" aria-label="toggle color theme">
-				<svg class="feather" aria-hidden="true"><use href="{{ $featherIconURL }}#sun" /></svg>
-			</span>
+			{{- if gt $menuLen 0 -}}
 			<span class="divider">|</span>
-			<script src="{{ absURL "js/themetoggle.js" }}"></script>
+			{{- end -}}
+			<button
+				id="dark-mode-toggle"
+				type="button"
+				data-theme-light-label="{{ i18n "themeLight" }}"
+				data-theme-dark-label="{{ i18n "themeDark" }}"
+				data-theme-toggle-label="{{ i18n "themeToggle" }}"
+				aria-label="{{ i18n "themeToggle" }}"
+			>
+				<span class="theme-toggle-icon" aria-hidden="true">
+					<svg class="feather theme-icon theme-icon-sun"><use href="{{ $featherIconURL }}#sun" /></svg>
+					<svg class="feather theme-icon theme-icon-moon"><use href="{{ $featherIconURL }}#moon" /></svg>
+				</span>
+				<span class="theme-toggle-copy">
+					<span class="theme-toggle-label">{{ i18n "theme" }}</span>
+					<span class="theme-toggle-state" data-theme-toggle-state>{{ i18n "themeLight" }}</span>
+				</span>
+			</button>
+			{{- $themeToggleJS := resources.Get "js/themetoggle.js" -}}
+			{{- if $themeToggleJS -}}
+			{{- if hugo.IsProduction -}}
+			{{- $themeToggleJS = $themeToggleJS | minify | fingerprint -}}
+			{{- else -}}
+			{{- $themeToggleJS = $themeToggleJS | fingerprint -}}
+			{{- end -}}
+			<script src="{{ $themeToggleJS.RelPermalink }}"></script>
+			{{- end -}}
 			{{ end -}}
 		</nav>
 	</div>

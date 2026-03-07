@@ -45,7 +45,19 @@ other = "About"
 other = "Search"
 
 [language]
-other = "Language" 
+other = "Language"
+
+[theme]
+other = "Theme"
+
+[themeLight]
+other = "Light"
+
+[themeDark]
+other = "Dark"
+
+[themeToggle]
+other = "Toggle color theme"
 
 [postNav]
 other = "Post navigation"

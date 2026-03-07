@@ -47,6 +47,18 @@ other = "검색"
 [language]
 other = "언어"
 
+[theme]
+other = "테마"
+
+[themeLight]
+other = "라이트"
+
+[themeDark]
+other = "다크"
+
+[themeToggle]
+other = "색상 테마 전환"
+
 [postNav]
 other = "글 탐색"
 

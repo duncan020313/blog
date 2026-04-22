@@ -390,14 +390,15 @@ body.page-posts::before {
 
 .home-section--intro h1 {
     margin: 0;
-    font-size: clamp(2.2rem, 4.2vw, 3.85rem);
-    line-height: 1.02;
+    font-size: clamp(2.08rem, 3.05vw, 3rem);
+    line-height: 0.98;
     letter-spacing: -0.05em;
     max-width: none;
 }
 
 .home-title-line {
     display: block;
+    white-space: nowrap;
 }
 
 .home-title-line--accent {
@@ -1175,6 +1176,10 @@ body.page-posts::before {
 
     .home-section--intro h1 {
         font-size: clamp(2.15rem, 9vw, 3.1rem);
+    }
+
+    .home-title-line {
+        white-space: normal;
     }
 
     .home-section-body {

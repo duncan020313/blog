@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Lang }}">
+<html lang="{{ .Lang }}"{{ if .IsHome }} class="page-home"{{ end }}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +51,7 @@
   {{- end }}
 
 </head>
-<body>
+<body{{ if .IsHome }} class="page-home"{{ end }}>
   <div class="site-shell">
     {{ partial "head.html" . }}
 
@@ -62,7 +62,7 @@
     {{ partial "footer.html" . }}
   </div>
 
-  {{ if not .Site.IsServer }}
+  {{ if not hugo.IsServer }}
   {{ template "_internal/google_analytics.html" . }}
   {{ end }}
 </body>

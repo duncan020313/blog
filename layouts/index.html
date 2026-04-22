@@ -1,37 +1,208 @@
 {{ define "main" }}
-{{- /*
-  Render the "About" page as the homepage.
-  This keeps the About content in a single source of truth (`content/about*.md`)
-  while making "/" (and "/ko/") behave like the About landing page.
-*/ -}}
-
-{{- $about := .Site.GetPage "page" "about" -}}
-{{- if not $about -}}
-  {{- $about = .Site.GetPage "/about" -}}
+{{- $portrait := resources.Get "high-resolution-portrait.png" -}}
+{{- if $portrait -}}
+  {{- $portrait = $portrait.Fit "720x960" -}}
 {{- end -}}
-{{- if not $about -}}
-  {{- $about = .Site.GetPage "about" -}}
-{{- end -}}
+{{- $newsPages := first 3 ((where .Site.RegularPages "Section" "news").ByDate.Reverse) -}}
 
-{{- if $about -}}
-  <article class="content-page">
-    <div class="post-container">
-      <div class="post-content">
-        <div class="title">
-          <h1 class="title">{{ $about.Title }}</h1>
+<article class="home-landing">
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="home-portrait-column">
+      <div class="home-portrait-card">
+        {{- if $portrait -}}
+          <img
+            class="home-portrait-image"
+            src="{{ $portrait.RelPermalink }}"
+            alt="Portrait of Dongjae Lee"
+            width="{{ $portrait.Width }}"
+            height="{{ $portrait.Height }}"
+          >
+        {{- else -}}
+          <div class="home-portrait-placeholder" aria-hidden="true">Portrait</div>
+        {{- end -}}
+      </div>
+      <div class="home-side-note">
+        <p class="home-side-copy">Ph.D. student, School of Computing, KAIST</p>
+      </div>
+    </div>
+
+    <div class="home-profile">
+      <section class="home-section home-section--intro">
+        <p class="home-kicker">Dongjae Lee</p>
+        <h1 id="home-title">
+          <span class="home-title-line">Building trustworthy</span>
+          <span class="home-title-line">programming systems</span>
+          <span class="home-title-line">with formal methods</span>
+          <span class="home-title-line home-title-line--accent">and agentic AI.</span>
+        </h1>
+        <p class="home-lead">
+          I am Dongjae Lee, a Ph.D. student in the School of Computing at KAIST and a member of
+          <a href="https://prosys.kaist.ac.kr/">Prosys Lab</a>, advised by
+          <a href="https://kihongheo.kaist.ac.kr/">Kihong Heo</a>.
+        </p>
+        <div class="home-chip-row" aria-label="Key links">
+          <a class="home-chip" href="https://prosys.kaist.ac.kr/">Prosys Lab</a>
+          <a class="home-chip" href="https://github.com/duncan020313">GitHub</a>
+          <a class="home-chip" href="mailto:dongjae.lee@prosys.kaist.ac.kr">Email</a>
         </div>
-        <section class="body">
-          {{ $about.Content }}
+      </section>
+
+      <div class="home-profile-grid">
+        <section class="home-section home-section--wide">
+          <div class="home-section-head">
+            <h2>Research Directions</h2>
+            <p>Current questions I am actively exploring.</p>
+          </div>
+          <div class="home-section-body">
+            <ul class="home-bullet-list">
+              <li>
+                <strong>Proof-Carrying Spec-Driven Development.</strong> I want coding assistants to verify
+                their own code and reduce the amount of human supervision needed for trustworthy software.
+              </li>
+              <li>
+                <strong>Mixing Natural and Formal Languages.</strong> I am interested in programming models that
+                combine LLM-friendly natural language with analyzable formal structure.
+              </li>
+              <li>
+                <strong>Security for Agentic Software.</strong> My work explores how to analyze and secure
+                agentic systems that execute tasks through prompts, tools, and autonomous workflows.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="home-section">
+          <div class="home-section-head">
+            <h2>Education</h2>
+            <p>Academic background.</p>
+          </div>
+          <div class="home-section-body">
+            <ul class="home-bullet-list home-bullet-list--compact">
+              <li>M.S. in School of Computing, KAIST, South Korea</li>
+              <li>B.S. in School of Computing, KAIST, South Korea</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="home-section">
+          <div class="home-section-head">
+            <h2>Selected Publications</h2>
+            <p>Recent research output.</p>
+          </div>
+          <div class="home-section-body">
+            <div class="home-publication">
+              <p class="home-publication-year">2026</p>
+              <p class="home-publication-title">
+                <a href="https://prosys.kaist.ac.kr/publications/pldi26.pdf">
+                  Expecto: Extracting Formal Specifications from Natural Language Description for Trustworthy Oracles
+                </a>
+              </p>
+              <p class="home-publication-venue">PLDI 2026</p>
+              <p class="home-publication-authors">
+                <strong>Dongjae Lee</strong>, Kihong Heo
+              </p>
+            </div>
+            <div class="home-publication">
+              <p class="home-publication-year">2025</p>
+              <p class="home-publication-title">
+                <a href="https://dl.acm.org/doi/10.1145/3680207.3765248">
+                  Safeguarding Mobile GUI Agent via Logic-based Action Verification
+                </a>
+              </p>
+              <p class="home-publication-venue">MobiCom 2025</p>
+              <p class="home-publication-authors">
+                Jungjae Lee*, <strong>Dongjae Lee*</strong>, Chihun Choi, Youngmin Im, Jaeyoung Wi, Kihong Heo,
+                Sangeun Oh, Sunjae Lee, Insik Shin
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="home-section">
+          <div class="home-section-head">
+            <h2>Honors &amp; Awards</h2>
+            <p>Selected recognitions.</p>
+          </div>
+          <div class="home-section-body">
+            <div class="home-publication">
+              <p class="home-publication-year">2026</p>
+              <p class="home-publication-title">Master&apos;s Thesis Excellence Award</p>
+            </div>
+            <div class="home-publication">
+              <p class="home-publication-year">2025</p>
+              <div class="home-publication-group">
+                <div class="home-publication-entry">
+                  <p class="home-publication-title">Winner</p>
+                  <p class="home-publication-venue">AI Champion Competition</p>
+                </div>
+                <div class="home-publication-entry">
+                  <p class="home-publication-title">Outstanding Teaching Assistant</p>
+                  <p class="home-publication-venue">CS424 Program Reasoning</p>
+                </div>
+              </div>
+            </div>
+            <div class="home-publication">
+              <p class="home-publication-year">2024</p>
+              <div class="home-publication-group">
+                <div class="home-publication-entry">
+                  <p class="home-publication-title">B.S. Summa Cum Laude</p>
+                  <p class="home-publication-venue">GPA 4.03/4.3</p>
+                </div>
+                <div class="home-publication-entry">
+                  <p class="home-publication-title">Finalist</p>
+                  <p class="home-publication-venue">Global AI Idea Lab Contest, CODEGATE</p>
+                </div>
+              </div>
+            </div>
+            <div class="home-publication">
+              <p class="home-publication-year">2022-2023</p>
+              <p class="home-publication-title">National Excellence Scholarship</p>
+            </div>
+            <div class="home-publication">
+              <p class="home-publication-year">2021</p>
+              <p class="home-publication-title">Dean&apos;s List</p>
+              <p class="home-publication-venue">Fall 2021</p>
+            </div>
+            <div class="home-publication">
+              <p class="home-publication-year">2020</p>
+              <p class="home-publication-title">Dean&apos;s List</p>
+              <p class="home-publication-venue">Spring 2020</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="home-section home-section--wide home-section--news">
+          <div class="home-section-head">
+            <h2>News</h2>
+            <p>Latest updates from my research and work.</p>
+          </div>
+          <div class="home-section-body">
+            {{- if gt (len $newsPages) 0 -}}
+              <div class="home-news-grid">
+                {{- range $newsPages -}}
+                  {{- $summary := .Params.summary -}}
+                  {{- if not $summary -}}
+                    {{- $summary = .Summary | plainify -}}
+                  {{- end -}}
+                  <article class="home-news-card">
+                    <p class="home-news-date">{{ .Date.Format "Jan 2, 2006" }}</p>
+                    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                    <p>{{ $summary | truncate 180 }}</p>
+                    {{- with .Params.link -}}
+                      <a class="home-news-link" href="{{ . }}">Open link</a>
+                    {{- else -}}
+                      <a class="home-news-link" href="{{ .RelPermalink }}">Read update</a>
+                    {{- end -}}
+                  </article>
+                {{- end -}}
+              </div>
+            {{- else -}}
+              <p class="home-news-empty">More updates soon.</p>
+            {{- end -}}
+          </div>
         </section>
       </div>
     </div>
-  </article>
-  {{- else -}}
-  <article class="content-page">
-    <h1 class="title">About</h1>
-    <section class="body">
-      <p>Could not find the About page content.</p>
-    </section>
-  </article>
-  {{- end -}}
+  </section>
+</article>
 {{ end }}

@@ -1,4 +1,4 @@
-baseURL = 'https://duncan020313.github.io/blog/'
+baseURL = 'http://localhost:1313/'
 defaultContentLanguage = 'en'
 title = 'Dongjae Lee Blog'
 copyright = "© Dongjae Lee"

@@ -1,5 +1,18 @@
+{{- $pageClasses := slice -}}
+{{- if .IsHome -}}
+  {{- $pageClasses = $pageClasses | append "page-home" -}}
+{{- end -}}
+{{- if eq .Section "posts" -}}
+  {{- $pageClasses = $pageClasses | append "page-posts" -}}
+  {{- if .IsSection -}}
+    {{- $pageClasses = $pageClasses | append "page-posts-list" -}}
+  {{- end -}}
+  {{- if .IsPage -}}
+    {{- $pageClasses = $pageClasses | append "page-posts-single" -}}
+  {{- end -}}
+{{- end -}}
 <!DOCTYPE html>
-<html lang="{{ .Lang }}"{{ if .IsHome }} class="page-home"{{ end }}>
+<html lang="{{ .Lang }}"{{ if gt (len $pageClasses) 0 }} class="{{ delimit $pageClasses " " }}"{{ end }}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +64,7 @@
   {{- end }}
 
 </head>
-<body{{ if .IsHome }} class="page-home"{{ end }}>
+<body{{ if gt (len $pageClasses) 0 }} class="{{ delimit $pageClasses " " }}"{{ end }}>
   <div class="site-shell">
     {{ partial "head.html" . }}
 

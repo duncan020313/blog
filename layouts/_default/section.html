@@ -1,6 +1,6 @@
 {{ define "main" }}
-<article class="content-section">
-  <header class="section-header">
+<article class="content-section posts-index">
+  <header class="section-header posts-index-header">
     <h1>{{ .Title | default (i18n "posts") }}</h1>
   </header>
   {{ partial "post-list.html" . }}

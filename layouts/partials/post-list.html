@@ -2,57 +2,25 @@
 {{- end -}} {{- if eq (len $pages) 0 -}}
 <p>{{ i18n "noPosts" | default "No posts yet." }}</p>
 {{- else -}}
-<section class="post-list">
+<section class="post-list post-list-archive">
   {{- range $pages }}
   <article class="post-card">
-    <h2 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <div class="meta">
-      <span class="meta-item">
-        <svg
-          class="meta-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-          <line x1="16" y1="2" x2="16" y2="6"></line>
-          <line x1="8" y1="2" x2="8" y2="6"></line>
-          <line x1="3" y1="10" x2="21" y2="10"></line>
-        </svg>
-        <span
-          >{{ i18n "publishedOn" }} {{ dateFormat ":date_medium" .Date }}</span
-        >
-      </span>
-      <span class="meta-item">
-        <svg
-          class="meta-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        <span>{{ i18n "readingTime" (dict "Count" .ReadingTime) }}</span>
-      </span>
+    <div class="post-card-meta" aria-label="post metadata">
+      <p class="post-card-date">{{ dateFormat ":date_medium" .Date }}</p>
+      <p class="post-card-reading">{{ i18n "readingTime" (dict "Count" .ReadingTime) }}</p>
       {{ if .Draft }}<span class="draft-label">DRAFT</span>{{ end }}
     </div>
-    <div class="summary">{{ .Summary }}</div>
-    {{- $tags := .GetTerms "tags" -}} {{- if gt (len $tags) 0 }}
-    <ul class="tag-list">
-      {{- range $tags }}
-      <li><a href="{{ .Page.RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
-    {{- end -}}
+    <div class="post-card-body">
+      <h2 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <div class="summary">{{ .Summary }}</div>
+      {{- $tags := .GetTerms "tags" -}} {{- if gt (len $tags) 0 }}
+      <ul class="tag-list">
+        {{- range $tags }}
+        <li><a href="{{ .Page.RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+      {{- end -}}
+    </div>
   </article>
   {{- end -}}
 </section>
@@ -62,18 +30,6 @@
   {{- if .Paginator.HasPrev }}
   <a class="pagination-link pagination-prev" href="{{ .Paginator.Prev.URL }}">
     <span class="pagination-link-label">
-      <svg
-        class="meta-icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
       <span>{{ i18n "previous" }}</span>
     </span>
   </a>
@@ -83,18 +39,6 @@
   <a class="pagination-link pagination-next" href="{{ .Paginator.Next.URL }}">
     <span class="pagination-link-label">
       <span>{{ i18n "next" }}</span>
-      <svg
-        class="meta-icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
     </span>
   </a>
   {{- end -}}

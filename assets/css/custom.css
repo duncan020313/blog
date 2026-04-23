@@ -1167,6 +1167,10 @@ body.page-posts::before {
 }
 
 @media (max-width: 780px) {
+    .home-portrait-column {
+        display: none;
+    }
+
     .home-section,
     .home-section--intro {
         padding-left: 0;
@@ -1264,10 +1268,5 @@ body.page-posts::before {
 
     .home-chip-row {
         gap: 0.55rem;
-    }
-
-    .home-chip {
-        width: 100%;
-        justify-content: center;
     }
 }

@@ -223,10 +223,9 @@
 }
 
 /* The greeting is the page speaking; the lead behind it is the record. Same
-   face and size, one step of colour and weight apart. */
+   face, size and weight — one step of colour apart, nothing more. */
 .home-greeting {
   font-size: var(--fs-body);
-  font-weight: var(--fw-medium);
   line-height: var(--lh-relaxed);
   color: var(--text);
 }

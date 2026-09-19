@@ -144,6 +144,9 @@
     "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     "Apple SD Gothic Neo", "Segoe UI", Roboto, "Helvetica Neue",
     "Noto Sans KR", "Malgun Gothic", sans-serif;
+  /* Newsreader carries every heading: hero headline, section titles, and
+     the titles of works (papers, posts). Nothing else is set in it. */
+  --font-serif: Newsreader, Georgia, "Times New Roman", serif;
   --font-mono:
     ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
@@ -156,7 +159,7 @@
   --fs-h3: 1.1875rem; /*    19  h3 / card titles                          */
   --fs-h2: 1.4375rem; /*    23  h2 / section titles                       */
   --fs-h1: clamp(1.75rem, 5vw, 2.125rem); /*    28-34  page titles         */
-  --fs-display: clamp(1.875rem, 6.5vw, 2.5rem); /* 30-40  home headline   */
+  --fs-display: clamp(2.25rem, 6vw, 3.625rem); /*  36-58  home headline    */
 
   --fw-regular: 400;
   --fw-medium: 500;
@@ -172,6 +175,7 @@
   --ls-tight: -0.015em;
   --ls-normal: 0;
   --ls-wide: 0.1em;
+  --ls-caps: 0.06em; /* serif uppercase: looser than tight, tighter than wide */
 
   /* 4px base step */
   --space-1: 0.25rem;
@@ -185,6 +189,7 @@
   --space-9: 5rem;
 
   --measure: 36rem; /* 576px reading column — roughly 62 characters */
+  --measure-wide: 67.5rem; /* 1080px — the home page only (see .is-home) */
   --gutter: clamp(1.25rem, 5vw, 1.75rem);
   --header-height: 3.5rem;
   --radius: 3px;
@@ -336,6 +341,12 @@ button {
   padding-inline: var(--gutter);
 }
 
+/* The home page is a landing page, not a reading page: every .wrap on it —
+   header, main, footer — runs to the wider measure so their edges align. */
+.is-home .wrap {
+  max-width: calc(var(--measure-wide) + 2 * var(--gutter));
+}
+
 .site-main {
   flex: 1 0 auto;
   padding-block: var(--space-7) var(--space-8);
@@ -379,24 +390,14 @@ button {
 }
 
 .brand {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
-  font-size: var(--fs-ui);
+  display: inline-block;
+  font-size: var(--fs-h3);
   font-weight: var(--fw-bold);
   letter-spacing: var(--ls-tight);
   line-height: var(--lh-tight);
   color: var(--text);
   text-decoration: none;
   white-space: nowrap;
-}
-
-.brand::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  background: var(--accent);
-  flex: none;
 }
 
 .brand:hover {
@@ -580,7 +581,8 @@ button {
 .body h3,
 .body h4 {
   color: var(--text);
-  font-weight: var(--fw-bold);
+  font-family: var(--font-serif);
+  font-weight: var(--fw-medium);
   letter-spacing: var(--ls-tight);
   line-height: var(--lh-tight);
   scroll-margin-top: calc(var(--header-height) + var(--space-4));
@@ -847,8 +849,9 @@ button {
 }
 
 .post-nav-title {
-  font-size: var(--fs-ui);
-  font-weight: var(--fw-medium);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
   line-height: var(--lh-snug);
   color: var(--text);
 }
@@ -863,11 +866,8 @@ button {
 }
 
 .toc {
-  padding: var(--space-4);
-  border: var(--hairline);
-  border-left: 2px solid var(--accent-line);
-  border-radius: var(--radius);
-  background: var(--surface-soft);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--hairline);
   font-size: var(--fs-ui);
 }
 

@@ -1,7 +1,7 @@
 {{- $pages := .Paginator.Pages -}}
 {{- if not $pages }}{{- $pages = .Pages -}}{{- end -}}
 {{- if eq (len $pages) 0 -}}
-<p class="home-news-empty">No posts yet.</p>
+<p class="post-list-empty">No posts yet.</p>
 {{- else -}}
 <section class="post-list post-list-archive">
   {{- range $pages }}

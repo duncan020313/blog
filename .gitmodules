@@ -1,0 +1,3 @@
+[submodule "assets/cv"]
+	path = assets/cv
+	url = https://github.com/duncan020313/dongjaelee-cv.git

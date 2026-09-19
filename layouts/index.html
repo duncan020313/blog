@@ -1,182 +1,171 @@
 {{ define "main" }}
 {{- $portrait := resources.Get "high-resolution-portrait.png" -}}
 {{- if $portrait -}}
-  {{- $portrait = $portrait.Fill "320x320 Top" -}}
+  {{- $portrait = $portrait.Fill "472x592 Top" -}}
 {{- end -}}
-{{- $newsPages := first 3 ((where .Site.RegularPages "Section" "news").ByDate.Reverse) -}}
+{{- /* CV lives in the dongjaelee-cv submodule; skip the link if it is not checked out. */ -}}
+{{- $cv := resources.Get "cv/cv.pdf" -}}
 
 <article class="home-landing">
-  <header class="home-masthead">
-    <div class="home-portrait">
-      {{- if $portrait -}}
-        <img
-          src="{{ $portrait.RelPermalink }}"
-          alt="Portrait of Dongjae Lee"
-          width="{{ $portrait.Width }}"
-          height="{{ $portrait.Height }}"
-          loading="eager"
-        >
-      {{- else -}}
-        <span class="home-portrait-placeholder" aria-hidden="true">DL</span>
-      {{- end -}}
-    </div>
-    <div class="home-identity">
-      <p class="home-name">Dongjae Lee</p>
-      <p class="home-role">Ph.D. student, School of Computing, KAIST</p>
-    </div>
-  </header>
-
   <section class="home-intro" aria-labelledby="home-title">
-    <h1 id="home-title">
-      <span class="home-title-line">Formal methods &times; Agentic AI</span>
-      <span class="home-title-line home-title-line--accent">for reliable programming systems</span>
-    </h1>
-    <p class="home-lead">
-      I am a Ph.D. student in the School of Computing at KAIST and a member of
-      <a href="https://prosys.kaist.ac.kr/">Prosys Lab</a>, advised by
-      <a href="https://kihongheo.kaist.ac.kr/">Kihong Heo</a>.
-    </p>
-    <nav class="home-inline-links" aria-label="Key links">
-      <a href="https://www.linkedin.com/in/%EB%8F%99%EC%9E%AC-%EC%9D%B4-b837a824b/">LinkedIn</a>
-      <a href="https://github.com/duncan020313">GitHub</a>
-      <a href="mailto:dongjae.lee@prosys.kaist.ac.kr">Email</a>
-    </nav>
+    <div class="home-intro-body">
+      <h1 id="home-title">
+        <span class="home-title-line">Formal Methods &times; Agentic AI</span>
+        <span class="home-title-line">for Reliable Programming Systems</span>
+      </h1>
+      <p class="home-lead">
+        I am a Ph.D. student in the School of Computing at KAIST and a member of
+        <a href="https://prosys.kaist.ac.kr/">Prosys Lab</a>, advised by
+        <a href="https://kihongheo.kaist.ac.kr/">Kihong Heo</a>.
+      </p>
+      <nav class="home-inline-links" aria-label="Key links">
+        <a href="https://www.linkedin.com/in/%EB%8F%99%EC%9E%AC-%EC%9D%B4-b837a824b/">LinkedIn</a>
+        <a href="https://github.com/duncan020313">GitHub</a>
+        <a href="mailto:dongjae.lee@prosys.kaist.ac.kr">Email</a>
+        {{- with $cv }}
+        <a href="{{ .RelPermalink }}" download="dongjae-lee-cv.pdf">CV</a>
+        {{- end }}
+      </nav>
+    </div>
+    {{- with $portrait }}
+    <div class="home-portrait">
+      <img
+        src="{{ .RelPermalink }}"
+        alt="Portrait of Dongjae Lee"
+        width="{{ .Width }}"
+        height="{{ .Height }}"
+        loading="eager"
+      >
+    </div>
+    {{- end }}
   </section>
 
   <section class="home-section">
     <div class="home-section-head">
-      <h2>Research Directions</h2>
-      <p>Current questions I am actively exploring.</p>
+      <h2>Research Interest</h2>
     </div>
-    <ul class="home-bullet-list">
+    <ol class="home-numbered-list">
       <li>
-        <strong>Proof-Carrying Spec-Driven Development.</strong> I want coding assistants to verify
-        their own code and reduce the amount of human supervision needed for trustworthy software.
+        <span class="home-numbered-index" aria-hidden="true">01</span>
+        <div>
+          <h3>Proof-carrying spec-driven development</h3>
+          <p>
+            Coding assistants that verify their own output, so trustworthy software
+            needs less human supervision.
+          </p>
+        </div>
       </li>
       <li>
-        <strong>Mixing Natural and Formal Languages.</strong> I am interested in programming models that
-        combine LLM-friendly natural language with analyzable formal structure.
+        <span class="home-numbered-index" aria-hidden="true">02</span>
+        <div>
+          <h3>Mixing natural and formal languages</h3>
+          <p>
+            Programming models that combine LLM-friendly natural language with
+            analyzable formal structure.
+          </p>
+        </div>
       </li>
       <li>
-        <strong>Security for Agentic Software.</strong> My work explores how to analyze and secure
-        agentic systems that execute tasks through prompts, tools, and autonomous workflows.
+        <span class="home-numbered-index" aria-hidden="true">03</span>
+        <div>
+          <h3>Security for agentic software</h3>
+          <p>
+            Analyzing and securing systems that execute tasks through prompts, tools,
+            and autonomous workflows.
+          </p>
+        </div>
       </li>
-    </ul>
+    </ol>
+  </section>
+
+  <section class="home-section">
+    <div class="home-section-head">
+      <h2>Publications</h2>
+    </div>
+    <div class="home-entry-list">
+      <article class="home-entry">
+        <span class="home-entry-gutter">2026</span>
+        <div>
+          <h3 class="home-entry-title">
+            <a href="https://prosys.kaist.ac.kr/publications/pldi26.pdf">
+              Expecto: Extracting Formal Specifications from Natural Language Description for Trustworthy Oracles
+            </a>
+          </h3>
+          <p class="home-entry-venue">PLDI 2026</p>
+          <p class="home-entry-authors"><strong>Dongjae Lee</strong>, Kihong Heo</p>
+        </div>
+      </article>
+      <article class="home-entry">
+        <span class="home-entry-gutter">2025</span>
+        <div>
+          <h3 class="home-entry-title">
+            <a href="https://dl.acm.org/doi/10.1145/3680207.3765248">
+              Safeguarding Mobile GUI Agent via Logic-based Action Verification
+            </a>
+          </h3>
+          <p class="home-entry-venue">MobiCom 2025</p>
+          <p class="home-entry-authors">
+            Jungjae Lee*, <strong>Dongjae Lee*</strong>, Chihun Choi, Youngmin Im, Jaeyoung Wi,
+            Kihong Heo, Sangeun Oh, Sunjae Lee, Insik Shin
+          </p>
+          <p class="home-entry-note"><span class="home-entry-note-mark">*</span> Equal contribution</p>
+        </div>
+      </article>
+    </div>
   </section>
 
   <section class="home-section">
     <div class="home-section-head">
       <h2>Education</h2>
-      <p>Academic background.</p>
     </div>
-    <ul class="home-bullet-list">
-      <li>M.S. in School of Computing, KAIST, South Korea</li>
-      <li>B.S. in School of Computing, KAIST, South Korea</li>
+    <ul class="home-entry-list">
+      <li class="home-entry">
+        <span class="home-entry-gutter">M.S.</span>
+        <p class="home-entry-line">School of Computing, KAIST</p>
+      </li>
+      <li class="home-entry">
+        <span class="home-entry-gutter">B.S.</span>
+        <p class="home-entry-line">School of Computing, KAIST</p>
+      </li>
     </ul>
   </section>
 
   <section class="home-section">
     <div class="home-section-head">
-      <h2>Selected Publications</h2>
-      <p>Recent research output.</p>
+      <h2>Honors</h2>
     </div>
-    <div class="home-entry">
-      <p class="home-entry-year">2026</p>
-      <p class="home-entry-title">
-        <a href="https://prosys.kaist.ac.kr/publications/pldi26.pdf">
-          Expecto: Extracting Formal Specifications from Natural Language Description for Trustworthy Oracles
-        </a>
-      </p>
-      <p class="home-entry-venue">PLDI 2026</p>
-      <p class="home-entry-authors"><strong>Dongjae Lee</strong>, Kihong Heo</p>
-    </div>
-    <div class="home-entry">
-      <p class="home-entry-year">2025</p>
-      <p class="home-entry-title">
-        <a href="https://dl.acm.org/doi/10.1145/3680207.3765248">
-          Safeguarding Mobile GUI Agent via Logic-based Action Verification
-        </a>
-      </p>
-      <p class="home-entry-venue">MobiCom 2025</p>
-      <p class="home-entry-authors">
-        Jungjae Lee*, <strong>Dongjae Lee*</strong>, Chihun Choi, Youngmin Im, Jaeyoung Wi, Kihong Heo,
-        Sangeun Oh, Sunjae Lee, Insik Shin
-      </p>
-    </div>
-  </section>
-
-  <section class="home-section">
-    <div class="home-section-head">
-      <h2>Honors &amp; Awards</h2>
-      <p>Selected recognitions.</p>
-    </div>
-    <div class="home-entry">
-      <p class="home-entry-year">2026</p>
-      <p class="home-entry-title">Master&apos;s Thesis Excellence Award</p>
-    </div>
-    <div class="home-entry">
-      <p class="home-entry-year">2025</p>
-      <div class="home-entry-sub">
-        <p class="home-entry-title">Winner</p>
-        <p class="home-entry-venue">AI Champion Competition</p>
-      </div>
-      <div class="home-entry-sub">
-        <p class="home-entry-title">Outstanding Teaching Assistant</p>
-        <p class="home-entry-venue">CS424 Program Reasoning</p>
-      </div>
-    </div>
-    <div class="home-entry">
-      <p class="home-entry-year">2024</p>
-      <div class="home-entry-sub">
-        <p class="home-entry-title">B.S. Summa Cum Laude</p>
-        <p class="home-entry-venue">GPA 4.03/4.3</p>
-      </div>
-      <div class="home-entry-sub">
-        <p class="home-entry-title">Finalist</p>
-        <p class="home-entry-venue">Global AI Idea Lab Contest, CODEGATE</p>
-      </div>
-    </div>
-    <div class="home-entry">
-      <p class="home-entry-year">2022-2023</p>
-      <p class="home-entry-title">National Excellence Scholarship</p>
-    </div>
-    <div class="home-entry">
-      <p class="home-entry-year">2021</p>
-      <p class="home-entry-title">Dean&apos;s List</p>
-      <p class="home-entry-venue">Fall 2021</p>
-    </div>
-    <div class="home-entry">
-      <p class="home-entry-year">2020</p>
-      <p class="home-entry-title">Dean&apos;s List</p>
-      <p class="home-entry-venue">Spring 2020</p>
-    </div>
-  </section>
-
-  <section class="home-section">
-    <div class="home-section-head">
-      <h2>News</h2>
-      <p>Latest updates from my research and work.</p>
-    </div>
-    {{- if gt (len $newsPages) 0 -}}
-      {{- range $newsPages -}}
-        {{- $summary := .Params.summary -}}
-        {{- if not $summary -}}
-          {{- $summary = .Summary | plainify -}}
-        {{- end -}}
-        <article class="home-news-card">
-          <p class="home-news-date">{{ .Date.Format "Jan 2, 2006" }}</p>
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <p class="home-news-summary">{{ $summary | truncate 180 }}</p>
-          {{- with .Params.link -}}
-            <a class="home-news-link" href="{{ . }}">Open link</a>
-          {{- else -}}
-            <a class="home-news-link" href="{{ .RelPermalink }}">Read update</a>
-          {{- end -}}
-        </article>
-      {{- end -}}
-    {{- else -}}
-      <p class="home-news-empty">More updates soon.</p>
-    {{- end -}}
+    <ul class="home-entry-list">
+      <li class="home-entry">
+        <span class="home-entry-gutter">2026</span>
+        <p class="home-entry-line">Master&apos;s Thesis Excellence Award</p>
+      </li>
+      <li class="home-entry">
+        <span class="home-entry-gutter">2025</span>
+        <div>
+          <p class="home-entry-line">Winner <span>&mdash; AI Champion Competition</span></p>
+          <p class="home-entry-line">Outstanding Teaching Assistant <span>&mdash; CS424 Program Reasoning</span></p>
+        </div>
+      </li>
+      <li class="home-entry">
+        <span class="home-entry-gutter">2024</span>
+        <div>
+          <p class="home-entry-line">B.S. Summa Cum Laude <span>&mdash; GPA 4.03/4.3</span></p>
+          <p class="home-entry-line">Finalist <span>&mdash; Global AI Idea Lab Contest, CODEGATE</span></p>
+        </div>
+      </li>
+      <li class="home-entry">
+        <span class="home-entry-gutter">2022</span>
+        <p class="home-entry-line">National Excellence Scholarship <span>&mdash; 2022&ndash;2023</span></p>
+      </li>
+      <li class="home-entry">
+        <span class="home-entry-gutter">2021</span>
+        <p class="home-entry-line">Dean&apos;s List <span>&mdash; Fall 2021</span></p>
+      </li>
+      <li class="home-entry">
+        <span class="home-entry-gutter">2020</span>
+        <p class="home-entry-line">Dean&apos;s List <span>&mdash; Spring 2020</span></p>
+      </li>
+    </ul>
   </section>
 </article>
 {{ end }}

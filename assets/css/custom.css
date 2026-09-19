@@ -25,8 +25,9 @@
 
 .section-header h1,
 .post-header h1 {
+  font-family: var(--font-serif);
   font-size: var(--fs-h1);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-regular);
   line-height: var(--lh-tight);
   letter-spacing: var(--ls-display);
   color: var(--text);
@@ -99,9 +100,10 @@
 }
 
 .post-card h2 {
+  font-family: var(--font-serif);
   font-size: var(--fs-h2);
-  font-weight: var(--fw-bold);
-  line-height: var(--lh-tight);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
   letter-spacing: var(--ls-tight);
   text-wrap: balance;
 }
@@ -139,6 +141,10 @@
   padding-block: var(--space-2);
 }
 
+.post-list-empty {
+  color: var(--text-muted);
+}
+
 /* --------------------------------------------------------------------------
    3. POST PAGE
    -------------------------------------------------------------------------- */
@@ -149,9 +155,8 @@
 
 .tldr {
   margin-bottom: var(--space-6);
-  padding: var(--space-4);
-  border-left: 2px solid var(--accent-line);
-  background: var(--accent-wash);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--hairline);
   font-size: var(--fs-ui);
   line-height: var(--lh-relaxed);
   color: var(--text-secondary);
@@ -180,84 +185,41 @@
 
 /* --------------------------------------------------------------------------
    4. HOME
+   A landing page, not a reading page: it runs on the wide measure (.is-home
+   in theme.css) as a two-column editorial grid — a label rail on the left,
+   content on the right. Type follows one rule: the serif carries headings
+   (hero headline, section titles, titles of works), the sans carries
+   everything else.
    -------------------------------------------------------------------------- */
 
-.home-masthead {
+.home-intro {
   display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  padding-bottom: var(--space-5);
-  border-bottom: var(--hairline);
+  align-items: flex-start;
+  gap: var(--space-9);
+  padding-bottom: var(--space-8);
 }
 
-.home-portrait {
-  flex: none;
-  width: 4.5rem;
-  height: 4.5rem;
-  overflow: hidden;
-  border: var(--hairline);
-  border-radius: var(--radius);
-  background: var(--bg-sunken);
-}
-
-.home-portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.home-portrait-placeholder {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  font-size: var(--fs-caption);
-  color: var(--text-faint);
-}
-
-.home-identity {
+.home-intro-body {
+  flex-grow: 1;
   min-width: 0;
 }
 
-.home-name {
-  font-size: var(--fs-h3);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-tight);
-  line-height: var(--lh-tight);
-  color: var(--text);
-}
-
-.home-role {
-  margin-top: var(--space-1);
-  font-size: var(--fs-small);
-  line-height: var(--lh-snug);
-  color: var(--text-muted);
-}
-
-.home-intro {
-  padding-block: var(--space-6);
-}
-
 .home-intro h1 {
+  font-family: var(--font-serif);
   font-size: var(--fs-display);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-regular);
   line-height: var(--lh-display);
   letter-spacing: var(--ls-display);
   color: var(--text);
-  text-wrap: balance;
 }
 
 .home-title-line {
   display: block;
 }
 
-.home-title-line--accent {
-  color: var(--accent);
-}
-
 .home-lead {
   margin-top: var(--space-5);
+  max-width: 34rem;
   font-size: var(--fs-body);
   line-height: var(--lh-relaxed);
   color: var(--text-secondary);
@@ -267,8 +229,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
+  gap: var(--space-5);
+  margin-top: var(--space-6);
 }
 
 .home-inline-links a {
@@ -288,102 +250,129 @@
   border-color: var(--accent-line);
 }
 
+.home-portrait {
+  flex: none;
+  width: 14.75rem;
+  border: var(--hairline);
+  background: var(--bg-sunken);
+}
+
+.home-portrait img {
+  display: block;
+  width: 100%;
+  height: 18.5rem;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Label rail + content. 12.5rem matches the widest section title. */
 .home-section {
+  display: grid;
+  grid-template-columns: 12.5rem minmax(0, 1fr);
+  column-gap: var(--space-8);
   padding-top: var(--space-5);
+  padding-bottom: var(--space-7);
   border-top: var(--hairline);
 }
 
-.home-section + .home-section {
-  margin-top: var(--space-6);
-}
-
-.home-section-head {
-  margin-bottom: var(--space-4);
-}
-
 .home-section-head h2 {
+  font-family: var(--font-serif);
   font-size: var(--fs-h2);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-medium);
   line-height: var(--lh-tight);
-  letter-spacing: var(--ls-tight);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
   color: var(--text);
 }
 
-.home-section-head p {
-  margin-top: var(--space-1);
-  font-size: var(--fs-small);
-  line-height: var(--lh-snug);
-  color: var(--text-muted);
-}
-
-.home-bullet-list {
+.home-numbered-list {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.home-numbered-index {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-caps);
+  line-height: 2.2;
+  color: var(--accent);
+}
+
+.home-numbered-list p {
+  margin-top: var(--space-2);
   font-size: var(--fs-ui);
   line-height: var(--lh-relaxed);
   color: var(--text-secondary);
 }
 
-.home-bullet-list li {
-  position: relative;
-  padding-left: var(--space-4);
+.home-entry-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.home-bullet-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.72em;
-  width: 0.45rem;
-  height: 1px;
-  background: var(--accent-line);
-}
-
-.home-bullet-list li + li {
-  margin-top: var(--space-3);
-}
-
+/* Numbered research items and dated entries run on one gutter geometry, so
+   every section's content starts on the same vertical line. */
+.home-numbered-list li,
 .home-entry {
+  display: grid;
+  grid-template-columns: 4.75rem minmax(0, 1fr);
+  column-gap: var(--space-5);
   padding-block: var(--space-4);
   border-top: 1px solid var(--line-faint);
 }
 
+.home-numbered-list li:first-child,
 .home-entry:first-child {
   padding-top: 0;
   border-top: 0;
 }
 
-.home-entry-year {
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  color: var(--accent);
+.home-numbered-list li:last-child,
+.home-entry:last-child {
+  padding-bottom: 0;
 }
 
+/* Years and degree labels are meta, so they stay in the sans. */
+.home-entry-gutter {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-caps);
+  line-height: 2.2;
+  color: var(--text-muted);
+}
+
+/* A research direction reads as a title, like a paper's: same face, size
+   and weight, so the two sections carry one voice. */
+.home-numbered-list h3,
 .home-entry-title {
-  margin-top: var(--space-2);
-  font-size: var(--fs-ui);
-  font-weight: var(--fw-bold);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
   line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
   color: var(--text);
 }
 
 .home-entry-title a {
   color: var(--text);
   text-decoration: none;
+  border-bottom: 1px solid var(--line-strong);
 }
 
 .home-entry-title a:hover {
   color: var(--accent);
+  border-color: var(--accent-line);
 }
 
 .home-entry-venue {
-  margin-top: var(--space-1);
-  font-size: var(--fs-small);
+  margin-top: var(--space-3);
+  font-size: var(--fs-caption);
   font-weight: var(--fw-medium);
-  color: var(--text-muted);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .home-entry-authors {
@@ -394,73 +383,33 @@
 }
 
 .home-entry-authors strong {
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-medium);
   color: var(--text-secondary);
 }
 
-.home-entry-sub + .home-entry-sub {
-  margin-top: var(--space-3);
-}
-
-.home-news-card {
-  padding-block: var(--space-4);
-  border-top: 1px solid var(--line-faint);
-}
-
-.home-news-card:first-child {
-  padding-top: 0;
-  border-top: 0;
-}
-
-.home-news-date {
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.home-news-card h3 {
+.home-entry-note {
   margin-top: var(--space-2);
-  font-size: var(--fs-h3);
-  font-weight: var(--fw-bold);
+  font-size: var(--fs-small);
   line-height: var(--lh-snug);
-  letter-spacing: var(--ls-tight);
-}
-
-.home-news-card h3 a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.home-news-card h3 a:hover {
-  color: var(--accent);
-}
-
-.home-news-summary {
-  margin-top: var(--space-2);
-  font-size: var(--fs-ui);
-  line-height: var(--lh-relaxed);
   color: var(--text-muted);
 }
 
-.home-news-link {
-  display: inline-block;
-  margin-top: var(--space-3);
-  font-size: var(--fs-caption);
+.home-entry-note-mark {
   font-weight: var(--fw-medium);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
   color: var(--accent);
-  text-decoration: none;
 }
 
-.home-news-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
+.home-entry-line {
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--text);
 }
 
-.home-news-empty {
+.home-entry-line + .home-entry-line {
+  margin-top: var(--space-2);
+}
+
+.home-entry-line span {
   color: var(--text-muted);
 }
 
@@ -468,21 +417,53 @@
    5. RESPONSIVE
    -------------------------------------------------------------------------- */
 
-@media (max-width: 34rem) {
-  .home-masthead {
-    gap: var(--space-3);
+/* Below the wide measure the rail has nowhere to go: labels sit above their
+   content and the two-column grid collapses. */
+@media (max-width: 54rem) {
+  .home-intro {
+    gap: var(--space-6);
   }
 
   .home-portrait {
-    width: 3.75rem;
-    height: 3.75rem;
+    width: 11rem;
+  }
+
+  .home-portrait img {
+    height: 13.75rem;
+  }
+
+  .home-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-section-head {
+    margin-bottom: var(--space-4);
+  }
+}
+
+@media (max-width: 34rem) {
+  /* The portrait is the first thing a phone would show and the last thing it
+     has room for, so it does not run at this width. */
+  .home-portrait {
+    display: none;
   }
 
   .home-intro {
-    padding-block: var(--space-5);
+    padding-bottom: var(--space-6);
+  }
+
+  .home-lead {
+    margin-top: var(--space-4);
   }
 
   .home-inline-links {
-    gap: var(--space-2) var(--space-3);
+    gap: var(--space-2) var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .home-numbered-list li,
+  .home-entry {
+    grid-template-columns: 3.75rem minmax(0, 1fr);
+    column-gap: var(--space-4);
   }
 }

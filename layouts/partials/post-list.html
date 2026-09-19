@@ -1,46 +1,44 @@
-{{- $pages := .Paginator.Pages -}} {{- if not $pages }} {{- $pages = .Pages -}}
-{{- end -}} {{- if eq (len $pages) 0 -}}
-<p>{{ i18n "noPosts" | default "No posts yet." }}</p>
+{{- $pages := .Paginator.Pages -}}
+{{- if not $pages }}{{- $pages = .Pages -}}{{- end -}}
+{{- if eq (len $pages) 0 -}}
+<p class="home-news-empty">No posts yet.</p>
 {{- else -}}
 <section class="post-list post-list-archive">
   {{- range $pages }}
   <article class="post-card">
     <div class="post-card-meta" aria-label="post metadata">
-      <p class="post-card-date">{{ dateFormat ":date_medium" .Date }}</p>
-      <p class="post-card-reading">{{ i18n "readingTime" (dict "Count" .ReadingTime) }}</p>
+      <span class="post-card-date">{{ dateFormat ":date_medium" .Date }}</span>
+      <span class="post-card-reading">{{ .ReadingTime }} min read</span>
       {{ if .Draft }}<span class="draft-label">DRAFT</span>{{ end }}
     </div>
-    <div class="post-card-body">
-      <h2 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-      <div class="summary">{{ .Summary }}</div>
-      {{- $tags := .GetTerms "tags" -}} {{- if gt (len $tags) 0 }}
-      <ul class="tag-list">
-        {{- range $tags }}
-        <li><a href="{{ .Page.RelPermalink }}">{{ .LinkTitle }}</a></li>
-        {{- end }}
-      </ul>
-      {{- end -}}
-    </div>
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <div class="summary">{{ .Summary | plainify }}</div>
+    {{- $tags := .GetTerms "tags" -}}
+    {{- if gt (len $tags) 0 }}
+    <ul class="tag-list">
+      {{- range $tags }}
+      <li><a href="{{ .Page.RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
   </article>
-  {{- end -}}
+  {{- end }}
 </section>
 
-{{- if .Paginator }} {{- if gt .Paginator.TotalPages 1 }}
+{{- if .Paginator }}{{- if gt .Paginator.TotalPages 1 }}
 <nav class="pagination" aria-label="pagination">
   {{- if .Paginator.HasPrev }}
   <a class="pagination-link pagination-prev" href="{{ .Paginator.Prev.URL }}">
-    <span class="pagination-link-label">
-      <span>{{ i18n "previous" }}</span>
-    </span>
+    <span class="pagination-link-label">Previous</span>
   </a>
   {{- else }}
   <span class="pagination-spacer" aria-hidden="true"></span>
-  {{- end -}} {{- if .Paginator.HasNext }}
+  {{- end }}
+  {{- if .Paginator.HasNext }}
   <a class="pagination-link pagination-next" href="{{ .Paginator.Next.URL }}">
-    <span class="pagination-link-label">
-      <span>{{ i18n "next" }}</span>
-    </span>
+    <span class="pagination-link-label">Next</span>
   </a>
-  {{- end -}}
+  {{- end }}
 </nav>
-{{- end -}} {{- end -}} {{- end -}}
+{{- end }}{{- end }}
+{{- end -}}

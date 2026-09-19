@@ -1,13 +1,12 @@
 {{ define "main" }}
-<article class="content-section">
+<div class="content-section">
   <header class="section-header">
-    <h1>{{ .Title | default (i18n "tags") }}</h1>
+    <h1>{{ .Title | default "Tags" }}</h1>
   </header>
-
-  <section class="post-list term-list">
+  <div class="term-list">
     {{- range .Data.Terms.ByCount }}
-    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span>({{ .Count }})</span></a>
+    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span>{{ .Count }}</span></a>
     {{- end }}
-  </section>
-</article>
+  </div>
+</div>
 {{ end }}

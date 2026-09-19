@@ -1,13 +1,10 @@
-<footer>
-  <div class="footer-links">
-    {{- range $key := .Site.Params.Social -}}
-    <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}">
-      {{ $key.name }}
-    </a>
-    <span class="border" aria-hidden="true"></span>
-    {{- end -}}
-  </div>
-  <div class="footer-info">
-    {{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . }} {{ end }}
+<footer class="site-footer">
+  <div class="site-footer-inner wrap">
+    <div class="footer-links">
+      {{- range $key := .Site.Params.Social }}
+      <a href="{{ $key.url }}" rel="me" title="{{ $key.name }}">{{ $key.name }}</a>
+      {{- end }}
+    </div>
+    <p class="footer-info">&copy; {{ dateFormat "2006" now }}{{ with .Site.Copyright }} {{ . }}{{ end }}</p>
   </div>
 </footer>

@@ -1,83 +1,73 @@
 {{ define "main" }}
 {{- $showMeta := ne .Type "page" -}}
 <article class="content-page post-page">
-  <div class="post-container{{ if isset .Params "toc" }} with-toc{{ end }}">
-    <div class="post-content">
-      <header class="post-header">
-        {{ if $showMeta }}
-        <div class="post-meta-line" aria-label="post metadata">
-          <span class="post-meta-line-item">{{ dateFormat ":date_medium" .Date }}</span>
-          <span class="post-meta-divider" aria-hidden="true">/</span>
-          <span class="post-meta-line-item">{{ i18n "readingTime" (dict "Count" .ReadingTime) }}</span>
-          {{ if .Draft }}<span class="draft-label">DRAFT</span>{{ end }}
-        </div>
-        {{ end }}
-        <h1>{{ .Title }}</h1>
-      </header>
-
-      {{ if isset .Params "tldr" }}
-      <div class="tldr">
-        <p class="tldr-label">tl;dr</p>
-        <p>{{ .Params.tldr }}</p>
-      </div>
-      {{ end }}
-
-      <section class="body">
-        {{ .Content }}
-      </section>
-
-      {{ if $showMeta }}
-      {{- $terms := .GetTerms "tags" -}}
-      {{ if gt (len $terms) 0 }}
-      <div class="post-tags">
-        <nav class="nav tags" aria-label="tags">
-          <ul class="tag-list">
-            {{ range $terms }}
-            <li><a href="{{ .Page.RelPermalink }}">{{ .LinkTitle }}</a></li>
-            {{ end }}
-          </ul>
-        </nav>
-      </div>
-      {{ end }}
-      {{ end }}
+  <header class="post-header">
+    {{ if $showMeta }}
+    <div class="post-meta-line" aria-label="post metadata">
+      <span>{{ dateFormat ":date_medium" .Date }}</span>
+      <span class="post-meta-divider" aria-hidden="true">/</span>
+      <span>{{ .ReadingTime }} min read</span>
+      {{ if .Draft }}<span class="draft-label">DRAFT</span>{{ end }}
     </div>
-
-    {{ if isset .Params "toc" }}
-    <aside class="toc">
-      <strong class="toc-title">Contents</strong>
-      {{ .TableOfContents }}
-    </aside>
     {{ end }}
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  {{ if isset .Params "tldr" }}
+  <div class="tldr">
+    <p class="tldr-label">tl;dr</p>
+    <p>{{ .Params.tldr }}</p>
+  </div>
+  {{ end }}
+
+  {{ if isset .Params "toc" }}
+  {{- /* The reading column is deliberately narrow, so the contents list sits
+         above the article instead of in a sidebar. */ -}}
+  <nav class="toc post-toc" aria-label="Contents">
+    <strong class="toc-title">Contents</strong>
+    {{ .TableOfContents }}
+  </nav>
+  {{ end }}
+
+  <div class="body">
+    {{ .Content }}
   </div>
 
   {{ if $showMeta }}
-  <nav class="post-nav" aria-label="{{ i18n "postNav" }}">
+  {{- $terms := .GetTerms "tags" -}}
+  {{ if gt (len $terms) 0 }}
+  <div class="post-tags">
+    <nav aria-label="tags">
+      <ul class="tag-list">
+        {{ range $terms }}
+        <li><a href="{{ .Page.RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+  {{ end }}
+
+  <nav class="post-nav" aria-label="Post navigation">
     {{- with .PrevInSection }}
     <a class="post-nav-item post-nav-prev" href="{{ .RelPermalink }}">
-      <span class="post-nav-label">{{ i18n "previous" }}</span>
+      <span class="post-nav-label">Previous</span>
       <span class="post-nav-title">{{ .Title }}</span>
     </a>
     {{- end }}
     {{- with .NextInSection }}
     <a class="post-nav-item post-nav-next" href="{{ .RelPermalink }}">
-      <span class="post-nav-label">{{ i18n "next" }}</span>
+      <span class="post-nav-label">Next</span>
       <span class="post-nav-title">{{ .Title }}</span>
     </a>
     {{- end }}
   </nav>
-  {{ end }}
-
-  {{- $.Scratch.Set "isDisqus" true -}}
-  {{ if not .Site.Config.Services.Disqus.Shortname }}
-  {{- $.Scratch.Set "isDisqus" false -}}
-  {{ end }}
 
   <section class="comments-section" aria-label="comments">
-    {{- if eq ($.Scratch.Get "isDisqus") true -}}
-    {{- partial "disqus.html" . -}}
-    {{- end -}}
-
+    {{- with .Site.Config.Services.Disqus.Shortname -}}
+    {{- partial "disqus.html" $ -}}
+    {{- end }}
     {{ partial "giscus.html" . }}
   </section>
+  {{ end }}
 </article>
 {{ end }}

@@ -6,36 +6,47 @@
 {{- end -}}
 {{- end -}}
 
+{{- /* Normalise paths so the current menu entry can be highlighted. The home
+       entry only matches exactly; every other entry also matches its
+       descendants (a post highlights "Posts"). */ -}}
+{{- $home := .Site.Home.RelPermalink | strings.TrimSuffix "/" -}}
+{{- if eq $home "" }}{{ $home = "/" }}{{ end -}}
+{{- $current := .RelPermalink | strings.TrimSuffix "/" -}}
+{{- if eq $current "" }}{{ $current = "/" }}{{ end -}}
+
 <header class="site-header">
-	<div class="site-header-inner">
+	<div class="site-header-inner wrap">
 		<a class="brand" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-		<nav class="top-nav">
-			{{- $menuLen := len .Site.Menus.main -}}
-			{{ range $idx, $menu := .Site.Menus.main }}
-			<a href="{{ $menu.URL }}">{{ $menu.Name }}</a>
-			{{ if lt (add $idx 1) $menuLen }}
-			<span class="divider">|</span>
-			{{ end }}
-			{{ end }}
-			{{- if eq .Site.Params.mode "toggle" -}}
-			{{- if gt $menuLen 0 -}}
-			<span class="divider">|</span>
-			{{- end -}}
+
+		<div class="site-nav">
+			<nav class="top-nav" aria-label="Primary">
+				{{- range .Site.Menus.main -}}
+				{{- $url := .URL | strings.TrimSuffix "/" -}}
+				{{- if eq $url "" }}{{ $url = "/" }}{{ end -}}
+				{{- $active := eq $current $url -}}
+				{{- if and (not $active) (ne $url $home) -}}
+				{{- $active = hasPrefix $current (printf "%s/" $url) -}}
+				{{- end }}
+				<a href="{{ .URL }}"{{ if $active }} class="is-current" aria-current="page"{{ end }}>{{ .Name }}</a>
+				{{- end }}
+			</nav>
+
+			{{- if eq .Site.Params.mode "toggle" }}
 			<button
 				id="dark-mode-toggle"
 				type="button"
-				data-theme-light-label="{{ i18n "themeLight" }}"
-				data-theme-dark-label="{{ i18n "themeDark" }}"
-				data-theme-toggle-label="{{ i18n "themeToggle" }}"
-				aria-label="{{ i18n "themeToggle" }}"
+				data-theme-light-label="Light"
+				data-theme-dark-label="Dark"
+				data-theme-toggle-label="Toggle color theme"
+				aria-label="Toggle color theme"
 			>
 				<span class="theme-toggle-icon" aria-hidden="true">
 					<svg class="feather theme-icon theme-icon-sun"><use href="{{ $featherIconURL }}#sun" /></svg>
 					<svg class="feather theme-icon theme-icon-moon"><use href="{{ $featherIconURL }}#moon" /></svg>
 				</span>
 				<span class="theme-toggle-copy">
-					<span class="theme-toggle-label">{{ i18n "theme" }}</span>
-					<span class="theme-toggle-state" data-theme-toggle-state>{{ i18n "themeLight" }}</span>
+					<span class="theme-toggle-label">Theme</span>
+					<span class="theme-toggle-state" data-theme-toggle-state>Light</span>
 				</span>
 			</button>
 			{{- $themeToggleJS := resources.Get "js/themetoggle.js" -}}
@@ -47,7 +58,7 @@
 			{{- end -}}
 			<script src="{{ $themeToggleJS.RelPermalink }}"></script>
 			{{- end -}}
-			{{ end -}}
-		</nav>
+			{{- end }}
+		</div>
 	</div>
 </header>

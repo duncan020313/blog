@@ -6,10 +6,9 @@ Repository guidance for coding agents working in this Hugo blog.
 
 - Static site built with Hugo (extended), no Node app/runtime in this repo.
 - Main app areas:
-  - `content/` (Markdown pages and posts, including Korean/English variants)
+  - `content/` (Markdown pages and posts; single English site, individual posts may be written in Korean)
   - `layouts/` (Hugo templates and partials)
   - `assets/` (CSS, JS, SVG)
-  - `i18n/` (translation strings)
   - `hugo.toml` (site configuration)
   - `.github/workflows/hugo.yml` (CI build/deploy)
 - Existing AGENTS file did not exist at time of writing.
@@ -56,14 +55,14 @@ Repository guidance for coding agents working in this Hugo blog.
 - Closest equivalent is targeted page validation:
   1. Run local server.
   2. Open only the changed route (example: `/posts/<slug>/` or `/ko/posts/<slug>/`).
-  3. Confirm rendering, i18n labels, assets, and console-free JS behavior.
+  3. Confirm rendering, assets, and console-free JS behavior.
 
 ## 4) Formatting and Style Baseline
 
 ### General
 
 - Preserve existing file style; this codebase is lightweight and manually formatted.
-- Use UTF-8 for content; multilingual text is expected in Markdown/i18n files.
+- Use UTF-8 for content; Korean text is expected in Markdown files.
 - Keep edits minimal and localized; avoid drive-by refactors.
 
 ### Indentation and spacing
@@ -96,7 +95,8 @@ Repository guidance for coding agents working in this Hugo blog.
 
 ## 6) Content and Front Matter Rules
 
-- Post/page content lives in `content/` with language-specific files (`*.ko.md` for Korean).
+- Post/page content lives in `content/`. The site is single-language (English); a Korean post
+  sets `htmlLang: ko` in front matter so `<html lang>` and the `:lang(ko)` word-break rules apply.
 - Front matter is primarily YAML (`---`), while archetype template uses TOML (`+++`).
 - Keep front matter fields consistent with existing posts:
   - `title`
@@ -105,16 +105,30 @@ Repository guidance for coding agents working in this Hugo blog.
 - Optional page params seen in templates:
   - `tldr`
   - `toc`
-- Preserve permalinks and language parity when editing translated content.
+- Preserve permalinks when renaming or moving content.
 
 ## 7) CSS Conventions
 
-- Prefer CSS custom properties from `:root` / `:root.theme-dark`.
-- Reuse existing tokens (`--bg`, `--surface`, `--text`, `--accent`, etc.) instead of hardcoding new palette values.
+The site runs on a small design system. Read the header comment in
+`assets/css/theme.css` before touching any styling.
+
+- `assets/css/theme.css` holds the system: two colour ramps (`--n-*` neutral,
+  `--w-*` burgundy), semantic tokens built from them, the type scale, spacing,
+  reset, and global chrome.
+- `assets/css/custom.css` holds page modules (home, archive, post page) composed
+  from those tokens. It is not an override layer.
+- Never write a raw colour, font size, or spacing value in a rule. Use a semantic
+  token (`--text`, `--line`, `--accent`, `--fs-body`, `--space-4`, …). If a ramp
+  step is missing, add it to the ramp and document it in the table comment.
+- Keep the type scale small: eight `--fs-*` steps and three weights
+  (`--fw-regular` 400, `--fw-medium` 500, `--fw-bold` 700). Pick the nearest
+  existing step rather than adding one.
+- Burgundy is a point colour: links, active nav, small rules and labels. It is
+  never used as a large fill.
+- Layout is a single `.wrap` column capped at `--measure`; there is no sidebar.
 - Keep responsive rules in media blocks near related components.
 - Respect existing reduced-motion handling:
   - `@media (prefers-reduced-motion: reduce)`
-- Add styles in `assets/css/custom.css` only for targeted overrides; keep `theme.css` coherent.
 
 ## 8) JavaScript Conventions
 
@@ -129,7 +143,6 @@ Repository guidance for coding agents working in this Hugo blog.
 - Templates/CSS classes use kebab-case (examples: `site-header`, `post-container`, `read-more`).
 - JS identifiers use camelCase (`setTheme`, `currentTheme`, `toggleTheme`).
 - Template locals typically use short, meaningful `$` variables.
-- i18n keys use lowerCamelCase (`readMore`, `publishedOn`, `noPosts`).
 
 ## 10) Error Handling and Safe Changes
 

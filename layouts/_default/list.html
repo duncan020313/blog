@@ -1,10 +1,9 @@
 {{ define "main" }}
-{{- $title := .Title | default (i18n "posts") -}}
-
-<article class="content-section posts-index">
+<div class="content-section posts-index">
   <header class="section-header posts-index-header">
-    <h1>{{ $title }}</h1>
+    <h1>{{ .Title | default "Posts" }}</h1>
+    {{- with .Content }}{{ . }}{{ end }}
   </header>
   {{ partial "post-list.html" . }}
-</article>
+</div>
 {{ end }}

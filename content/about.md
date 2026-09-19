@@ -8,44 +8,44 @@ My research focuses on building trustworthy programming systems by combining for
 - **Security for Agentic Software:** Modern software increasingly incorporates agentic AI, in which systems autonomously execute tasks through prompts and tool-based programs such as Claude Code's SKILL feature. This paradigm introduces new security vulnerabilities that traditional program analysis cannot capture. My work explores new techniques for analyzing and securing such agentic software systems.
 
 
-# Education
+## Education
 - M.S. in School of Computing, KAIST, South Korea
 - B.S. in School of Computing, KAIST, South Korea
 
 
-# Publications
+## Publications
 
-## 2025
+### 2025
 
 - [Safeguarding Mobile GUI Agent via Logic-based Action Verification](https://dl.acm.org/doi/10.1145/3680207.3765248) (MobiCom 2025)
   - Jungjae Lee*, **Dongjae Lee***, Chihun Choi, Youngmin Im, Jaeyoung Wi, Kihong Heo, Sangeun Oh, Sunjae Lee, Insik Shin (* equal contribution)
 
-# Honors & Awards
+## Honors & Awards
 
-## 2020
+### 2020
 - Dean's List (School of Freshmen, Spring Semester)
 
-## 2021
+### 2021
 - Dean's List (College of Engineering, Fall Semester)
 
-## 2022
+### 2022
 - National Excellence Scholarship
 
-## 2023
+### 2023
 - National Excellence Scholarship
 
-## 2024
+### 2024
 - B.S. Summa Cum Laude (GPA: 4.03/4.3)
 - Finalist, Global AI Idea Lab Contest (CODEGATE 2024)
 
-## 2025
+### 2025
 - Winner, AI Champion Competition (Minister of Science and ICT Award, Team: autophone)
 - Outstanding Teaching Assistant, Fall Semester (CS424 Program Reasoning)
 
-## 2026
+### 2026
 - Master's Thesis Excellence Award
 
-# Contact
+## Contact
 - Email: [dongjae.lee@prosys.kaist.ac.kr](mailto:dongjae.lee@prosys.kaist.ac.kr)
 - GitHub: [duncan020313](https://github.com/duncan020313)
 - LinkedIn: [Dongjae Lee](https://www.linkedin.com/in/%EB%8F%99%EC%9E%AC-%EC%9D%B4-b837a824b/#:~:text=KAIST%20ProsysLab-,%ED%94%84%EB%A1%9C%ED%95%84%20%EB%B3%B4%EA%B8%B0,-%EC%9D%B8%EC%A6%9D)

@@ -185,26 +185,31 @@
 
 /* --------------------------------------------------------------------------
    4. HOME
-   A landing page, not a reading page: it runs on the wide measure (.is-home
-   in theme.css) as a two-column editorial grid — a label rail on the left,
-   content on the right. Type follows one rule: the serif carries headings
-   (hero headline, section titles, titles of works), the sans carries
-   everything else.
+   The home page reads on the same column as every other page, so its
+   structure is vertical: a headline across the column, a section label above
+   each section, one label gutter inside the lists. Type follows one rule: the
+   serif carries headings (headline, section titles, titles of works), the
+   sans carries everything else.
    -------------------------------------------------------------------------- */
 
 .home-intro {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-9);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--space-6);
+  row-gap: var(--space-5);
   padding-bottom: var(--space-8);
 }
 
+/* The lead starts at the top of the portrait, the links finish on its bottom
+   edge, so the intro closes on one line. */
 .home-intro-body {
-  flex-grow: 1;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .home-intro h1 {
+  grid-column: 1 / -1;
   font-family: var(--font-serif);
   font-size: var(--fs-display);
   font-weight: var(--fw-regular);
@@ -217,9 +222,17 @@
   display: block;
 }
 
+/* The greeting is the page speaking; the lead behind it is the record. Same
+   face and size, one step of colour and weight apart. */
+.home-greeting {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-relaxed);
+  color: var(--text);
+}
+
 .home-lead {
-  margin-top: var(--space-5);
-  max-width: 34rem;
+  margin-top: var(--space-2);
   font-size: var(--fs-body);
   line-height: var(--lh-relaxed);
   color: var(--text-secondary);
@@ -250,9 +263,11 @@
   border-color: var(--accent-line);
 }
 
+/* 12.5rem is the portrait's floor; past it the frame follows the text beside
+   it, so both columns close on the same line at every width. */
 .home-portrait {
-  flex: none;
-  width: 14.75rem;
+  align-self: stretch;
+  width: 10rem;
   border: var(--hairline);
   background: var(--bg-sunken);
 }
@@ -260,19 +275,20 @@
 .home-portrait img {
   display: block;
   width: 100%;
-  height: 18.5rem;
+  height: 100%;
+  min-height: 12.5rem;
   object-fit: cover;
   object-position: center top;
 }
 
-/* Label rail + content. 12.5rem matches the widest section title. */
 .home-section {
-  display: grid;
-  grid-template-columns: 12.5rem minmax(0, 1fr);
-  column-gap: var(--space-8);
   padding-top: var(--space-5);
   padding-bottom: var(--space-7);
   border-top: var(--hairline);
+}
+
+.home-section-head {
+  margin-bottom: var(--space-4);
 }
 
 .home-section-head h2 {
@@ -417,30 +433,6 @@
    5. RESPONSIVE
    -------------------------------------------------------------------------- */
 
-/* Below the wide measure the rail has nowhere to go: labels sit above their
-   content and the two-column grid collapses. */
-@media (max-width: 54rem) {
-  .home-intro {
-    gap: var(--space-6);
-  }
-
-  .home-portrait {
-    width: 11rem;
-  }
-
-  .home-portrait img {
-    height: 13.75rem;
-  }
-
-  .home-section {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .home-section-head {
-    margin-bottom: var(--space-4);
-  }
-}
-
 @media (max-width: 34rem) {
   /* The portrait is the first thing a phone would show and the last thing it
      has room for, so it does not run at this width. */
@@ -448,12 +440,11 @@
     display: none;
   }
 
+  /* With no portrait the intro is a single column again. */
   .home-intro {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-4);
     padding-bottom: var(--space-6);
-  }
-
-  .home-lead {
-    margin-top: var(--space-4);
   }
 
   .home-inline-links {

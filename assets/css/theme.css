@@ -159,7 +159,7 @@
   --fs-h3: 1.1875rem; /*    19  h3 / card titles                          */
   --fs-h2: 1.4375rem; /*    23  h2 / section titles                       */
   --fs-h1: clamp(1.75rem, 5vw, 2.125rem); /*    28-34  page titles         */
-  --fs-display: clamp(2.25rem, 6vw, 3.625rem); /*  36-58  home headline    */
+  --fs-display: clamp(1.75rem, 6.5vw, 2.5rem); /*  28-40  home headline    */
 
   --fw-regular: 400;
   --fw-medium: 500;
@@ -189,7 +189,6 @@
   --space-9: 5rem;
 
   --measure: 36rem; /* 576px reading column — roughly 62 characters */
-  --measure-wide: 67.5rem; /* 1080px — the home page only (see .is-home) */
   --gutter: clamp(1.25rem, 5vw, 1.75rem);
   --header-height: 3.5rem;
   --radius: 3px;
@@ -339,12 +338,6 @@ button {
   max-width: calc(var(--measure) + 2 * var(--gutter));
   margin-inline: auto;
   padding-inline: var(--gutter);
-}
-
-/* The home page is a landing page, not a reading page: every .wrap on it —
-   header, main, footer — runs to the wider measure so their edges align. */
-.is-home .wrap {
-  max-width: calc(var(--measure-wide) + 2 * var(--gutter));
 }
 
 .site-main {
